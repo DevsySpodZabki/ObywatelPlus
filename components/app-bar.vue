@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar fixed light>
+  <v-app-bar fixed light app>
     <v-toolbar-title>
       Obywatel Plus
       <v-btn color="accent" text to="/sponsor">
