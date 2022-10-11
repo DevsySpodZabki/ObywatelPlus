@@ -1,40 +1,39 @@
 <template>
   <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
+    <v-main>
+      <AppBar />
+      <v-container fluid margin="auto">
+        <v-img width="30%" height="40%" src="/404.svg" />
+        <v-row justify="center">
+      <h1>
+        <NuxtLink to="/">
+        <span class="text-center">Strona główna</span>
+        </NuxtLink>
+        </h1>
+        </v-row>
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
 <script>
+import AppBar from '../components/app-bar.vue';
 export default {
-  name: 'EmptyLayout',
-  layout: 'empty',
-  props: {
-    error: {
-      type: Object,
-      default: null
-    }
-  },
-  data () {
-    return {
-      pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
-    }
-  },
-  head () {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError
-    return {
-      title
-    }
-  }
+    name: "EmptyLayout",
+    layout: "empty",
+    props: {
+        error: {
+            type: Object,
+            default: null
+        }
+    },
+    head() {
+        const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
+        return {
+            title
+        };
+    },
+    components: { AppBar }
 }
 </script>
 
