@@ -7,7 +7,7 @@
           mdi-cards-heart
         </v-icon>
         <span class="hidden-sm-and-down ml-2">
-          Wesprzyj projekt
+          Wesprzyj nasz projekt
         </span>
       </v-btn>
     </v-toolbar-title>
@@ -27,6 +27,22 @@
           <v-icon v-if="!$vuetify.theme.dark">
             mdi-weather-night
           </v-icon>
+        </v-btn>
+        <v-btn color="accent" text>
+          <v-icon>
+            mdi-map-marker-radius
+          </v-icon>
+          <span class="hidden-sm-and-down ml-2">
+            Znajdź lub ogłoś pomoc na mapie
+          </span>
+        </v-btn>
+        <v-btn color="accent" text>
+          <v-icon>
+            mdi-piggy-bank
+          </v-icon>
+          <span class="hidden-sm-and-down ml-2">
+            Zbiórki & budżety obywatelskie
+          </span>
         </v-btn>
       </template>
     </v-menu>
