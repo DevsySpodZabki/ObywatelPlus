@@ -18,7 +18,7 @@
             <span
               :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
             >
-            Integer at pharetra augue, non porta risus. In rhoncus dictum commodo. In volutpat, lectus at posuere gravida, augue nulla fringilla quam, nec euismod urna urna sed nunc. In hac habitasse platea dictumst.
+            Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy. 
             </span>
           </span>
           </v-col>
@@ -41,18 +41,41 @@
               :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
               class="font-weight-black"
             >
-              Znajdź lub nieś pomoc na mapie
+              Interaktywna mapa do pomagania
             </span>
             <br>
             <span
               :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
             >
-            Znajdź użytkowników którzy potrzebują pomocy na naszej interaktywnej mapie! Możesz poprosić o pomoc lub ją zaproponować.
+            Stwórz lokację lub obszar, w której zaoferujesz pomoc innym użytkownikom, możesz rónież poprosić o pomoc. Skontaktuj się z naszymi użytkownikami za pomocą wbudowanego czatu, lub przez podanie swoich mediów społecznościowych.
             </span>
           </span>
           </v-col>
         </v-row>
-      </v-container>
+    </v-container>
+    <v-container>
+        <v-row>
+          <v-col class="d-flex" cols="12" md="6">
+          <span class="my-auto">
+            <span
+              :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
+              class="font-weight-black"
+            >
+              Tworzenie zbiórek oraz gromadzenie budżetów obywatelskich
+            </span>
+            <br>
+            <span
+              :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+            >
+            Stwórz swoją zbiórkę pieniędzy i zbieraj pieniądze na swój cel, możesz również zaangażować się pomagając w zbieraniu pieniędzy, innym lub zorganizować budżet obywatelski na określony cel.
+            </span>
+          </span>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-img src="zbiorki.svg" />
+          </v-col>
+        </v-row>
+    </v-container>
 </v-main>
 </v-app>
 </template>
