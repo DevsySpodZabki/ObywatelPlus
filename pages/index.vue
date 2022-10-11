@@ -30,6 +30,29 @@
       </v-container>
     </v-theme-provider>
   </v-row>
+  <v-container>
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-img src="lokalizacja1.svg" />
+          </v-col>
+          <v-col class="d-flex" cols="12" md="6">
+          <span class="my-auto">
+            <span
+              :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
+              class="font-weight-black"
+            >
+              Znajdź lub nieś pomoc na mapie
+            </span>
+            <br>
+            <span
+              :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+            >
+            Znajdź użytkowników którzy potrzebują pomocy na naszej interaktywnej mapie! Możesz poprosić o pomoc lub ją zaproponować.
+            </span>
+          </span>
+          </v-col>
+        </v-row>
+      </v-container>
 </v-main>
 </v-app>
 </template>
