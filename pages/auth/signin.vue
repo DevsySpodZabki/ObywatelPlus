@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <VuePhoneNumberInput v-model="number" :translations="translations" />
+  <v-container>
+    <VuePhoneNumberInput v-model="number" :translations="translations" dark />
     Signin
     <button id="recaptcha-container" class="btn btn-primary" @click="login">
       LOGIN
@@ -9,7 +9,7 @@
       id="recaptcha-container"
       class="justify-center flex"
     />
-  </div>
+  </v-container>
 </template>
 <script>
 import VuePhoneNumberInput from 'vue-phone-number-input'
@@ -24,10 +24,10 @@ export default {
     return {
       number: '',
       translations: {
-        countrySelectorLabel: 'Code pays',
+        countrySelectorLabel: 'Kod kraju',
         countrySelectorError: 'Choisir un pays',
-        phoneNumberLabel: 'Numéro de téléphone',
-        example: 'Exemple :'
+        phoneNumberLabel: 'Numer telefonu',
+        example: 'Przykład:'
       }
     }
   },
