@@ -1,14 +1,21 @@
 <template>
   <v-container>
-    <VuePhoneNumberInput v-model="number" :translations="translations" dark />
-    Signin
-    <button id="recaptcha-container" class="btn btn-primary" @click="login">
-      LOGIN
-    </button>
-    <div
-      id="recaptcha-container"
-      class="justify-center flex"
-    />
+    <v-row>
+      <v-col>
+        <v-card>
+          <v-card-text>
+            <VuePhoneNumberInput v-model="number" :translations="translations" dark />
+            <v-btn id="recaptcha-container" class="btn btn-primary rounded-lg mt-4" block large @click="login">
+              Dalej
+            </v-btn>
+            <div
+              id="recaptcha-container"
+              class="justify-center flex"
+            />
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 <script>
