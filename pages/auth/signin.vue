@@ -34,7 +34,7 @@
                 block
                 class="rounded-lg"
                 color="primary"
-                @click="e1 = 2;login()"
+                @click="login()"
               >
                 Dalej
               </v-btn>
@@ -108,7 +108,7 @@ export default {
   methods: {
     async login () {
       const loginWithNumber = await this.$fire.auth.signInWithPhoneNumber('+48504669559', this.appVerifier)
-
+      this.e1=2
       console.log(loginWithNumber)
     }
   }
