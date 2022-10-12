@@ -3,13 +3,13 @@
     <v-main>
       <AppBar />
       <v-container fluid margin="auto">
-        <svg-icon name="404"  width="100%" height="100%"/>
+        <svg-icon name="404" width="100%" height="100%" />
         <v-row justify="center">
-      <h1>
-        <NuxtLink to="/">
-        <span class="text-center">Strona główna</span>
-        </NuxtLink>
-        </h1>
+          <h1>
+            <NuxtLink to="/">
+              <span class="text-center">Strona główna</span>
+            </NuxtLink>
+          </h1>
         </v-row>
       </v-container>
     </v-main>
@@ -17,23 +17,23 @@
 </template>
 
 <script>
-import AppBar from '../components/app-bar.vue';
+import AppBar from '../components/app-bar.vue'
 export default {
-    name: "EmptyLayout",
-    layout: "empty",
-    props: {
-        error: {
-            type: Object,
-            default: null
-        }
-    },
-    head() {
-        const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
-        return {
-            title
-        };
-    },
-    components: { AppBar }
+  name: 'EmptyLayout',
+  components: { AppBar },
+  layout: 'empty',
+  props: {
+    error: {
+      type: Object,
+      default: null
+    }
+  },
+  head () {
+    const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+    return {
+      title
+    }
+  }
 }
 </script>
 
