@@ -2,12 +2,12 @@
   <v-app dark>
     <v-main>
       <AppBar />
-      <v-container fluid margin="auto">
-        <v-img width="30%" height="40%" src="/404.svg" />
+      <v-container justify="center" align="center">
+        <v-img width="30%" height="40%" src="/404.svg"/>
         <v-row justify="center">
       <h1>
         <NuxtLink to="/">
-        <span class="text-center">Strona główna</span>
+        Strona główna
         </NuxtLink>
         </h1>
         </v-row>
