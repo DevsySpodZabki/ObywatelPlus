@@ -42,6 +42,23 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyB7lM_VvHeWqAsMmCc0uyl2EevnyMb_7Qc',
+          authDomain: 'obywatel-plus.firebaseapp.com',
+          databaseURL: 'https://obywatel-plus-default-rtdb.europe-west1.firebasedatabase.app',
+          projectId: 'obywatel-plus',
+          storageBucket: 'obywatel-plus.appspot.com',
+          messagingSenderId: '614724324012',
+          appId: '1:614724324012:web:07a412e59b88cf1522ed09'
+        },
+        services: {
+          auth: true // Just as example. Can be any other service.
+        }
+      }
+    ],
     '@nuxtjs/svg-sprite',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
