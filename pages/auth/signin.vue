@@ -23,15 +23,16 @@
             >
               Wpisz kod weryfikacyjny
             </v-stepper-step>
-
           </v-stepper-header>
 
           <v-stepper-items>
             <v-stepper-content step="1">
-              <VuePhoneNumberInput v-model="number" :translations="translations" dark  class="mb-5"/>
+              <VuePhoneNumberInput v-model="number" :translations="translations" dark class="mb-5" />
 
               <v-btn
-              class="rounded-lg"
+                large
+                block
+                class="rounded-lg"
                 color="primary"
                 @click="e1 = 2;login()"
               >
@@ -40,12 +41,10 @@
             </v-stepper-content>
 
             <v-stepper-content step="2">
-              <v-card
-                class="mb-12"
-                color="grey lighten-1"
-                height="200px"
+              <v-otp-input
+                length="6"
+                type="number"
               />
-
               <v-btn
                 color="primary"
               >
