@@ -59,7 +59,6 @@ export default {
         }
       }
     ],
-    '@nuxtjs/svg-sprite',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
