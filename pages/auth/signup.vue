@@ -1,7 +1,7 @@
 <template>
   <div>
-		Signup
-	</div>
+    Signup
+  </div>
 </template>
 <script>
 export default {

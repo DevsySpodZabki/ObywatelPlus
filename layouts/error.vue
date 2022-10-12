@@ -5,11 +5,11 @@
       <v-container fluid margin="auto">
         <v-img width="30%" height="40%" src="/404.svg" />
         <v-row justify="center">
-      <h1>
-        <NuxtLink to="/">
-        <span class="text-center">Strona główna</span>
-        </NuxtLink>
-        </h1>
+          <h1>
+            <NuxtLink to="/">
+              <span class="text-center">Strona główna</span>
+            </NuxtLink>
+          </h1>
         </v-row>
       </v-container>
     </v-main>

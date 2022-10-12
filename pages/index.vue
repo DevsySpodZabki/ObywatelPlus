@@ -9,29 +9,30 @@
               v-model="isActive"
               :options="{ threshold: .5 }"
               min-height="200"
-              transition="fade-transition">
-            <v-row>
-              <v-col class="d-flex" cols="12" md="6">
-                <span class="my-auto">
-                  <span
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-4']"
-                    class="font-weight-black"
-                  >
-                    Obywatel Plus
+              transition="fade-transition"
+            >
+              <v-row>
+                <v-col class="d-flex" cols="12" md="6">
+                  <span class="my-auto">
+                    <span
+                      :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-4']"
+                      class="font-weight-black"
+                    >
+                      Obywatel Plus
+                    </span>
+                    <br>
+                    <span
+                      :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+                    >
+                      Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
+                    </span>
                   </span>
-                  <br>
-                  <span
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
-                  >
-                    Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
-                  </span>
-                </span>
-              </v-col>
+                </v-col>
 
-              <v-col cols="12" md="6">
-                <v-img src="wolontariusz.svg" />
-              </v-col>
-            </v-row>
+                <v-col cols="12" md="6">
+                  <v-img src="wolontariusz.svg" />
+                </v-col>
+              </v-row>
             </v-lazy>
           </v-container>
         </v-theme-provider>
@@ -89,29 +90,12 @@
 import AppBar from '../components/app-bar.vue'
 export default {
   name: 'IndexPage',
+  components: { AppBar },
   data: () => ({
-      isActive: false,
-    }),
-  components: { AppBar }
+    isActive: false
+  })
 }
 </script>
 
 <style>
-#app {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 200% 200%;
-	animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
 </style>
