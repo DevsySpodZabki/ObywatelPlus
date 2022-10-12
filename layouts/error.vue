@@ -2,12 +2,12 @@
   <v-app dark>
     <v-main>
       <AppBar />
-      <v-container justify="center" align="center">
-        <v-img width="30%" height="40%" src="/404.svg"/>
+      <v-container fluid margin="auto">
+        <v-img width="30%" height="40%" src="/404.svg" />
         <v-row justify="center">
       <h1>
         <NuxtLink to="/">
-        Strona główna
+        <span class="text-center">Strona główna</span>
         </NuxtLink>
         </h1>
         </v-row>
@@ -17,23 +17,23 @@
 </template>
 
 <script>
-import AppBar from '../components/app-bar.vue';
+import AppBar from '../components/app-bar.vue'
 export default {
-    name: "EmptyLayout",
-    layout: "empty",
-    props: {
-        error: {
-            type: Object,
-            default: null
-        }
-    },
-    head() {
-        const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
-        return {
-            title
-        };
-    },
-    components: { AppBar }
+  name: 'EmptyLayout',
+  components: { AppBar },
+  layout: 'empty',
+  props: {
+    error: {
+      type: Object,
+      default: null
+    }
+  },
+  head () {
+    const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+    return {
+      title
+    }
+  }
 }
 </script>
 

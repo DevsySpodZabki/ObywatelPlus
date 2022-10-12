@@ -29,13 +29,13 @@
           </v-icon>
         </v-btn>
         <v-btn text to="/auth/signin">
-              Zaloguj się
-            </v-btn>
-            <v-btn text to="/auth/signup">
-              Zarejestruj się
-            </v-btn>
-            <v-btn text to="/panel">
-              Przejdź do panelu
+          Zaloguj się
+        </v-btn>
+        <v-btn text to="/auth/signup">
+          Zarejestruj się
+        </v-btn>
+        <v-btn text to="/panel">
+          Przejdź do panelu
         </v-btn>
         <v-btn color="accent" text>
           <v-icon>
