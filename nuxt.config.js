@@ -42,11 +42,15 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/svg-sprite',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa'
   ],
+  svgSprite: {
+    // elementClass: 'w-100'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

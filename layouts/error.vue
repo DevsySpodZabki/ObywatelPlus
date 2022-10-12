@@ -3,7 +3,7 @@
     <v-main>
       <AppBar />
       <v-container fluid margin="auto">
-        <v-img width="30%" height="40%" src="/404.svg" />
+        <svg-icon name="404"  width="100%" height="100%"/>
         <v-row justify="center">
       <h1>
         <NuxtLink to="/">

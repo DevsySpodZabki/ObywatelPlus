@@ -18,13 +18,13 @@
             <span
               :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
             >
-            Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy. 
+            Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
             </span>
           </span>
           </v-col>
-          
+
           <v-col cols="12" md="6">
-            <v-img src="wolontariusz.svg" />
+            <svg-icon name="wolontariusz"  width="100%" height="100%"/>
           </v-col>
         </v-row>
       </v-container>
@@ -33,7 +33,7 @@
   <v-container>
         <v-row>
           <v-col cols="12" md="6">
-            <v-img src="lokalizacja1.svg" />
+            <svg-icon name="lokalizacja1"  width="100%" height="100%" />
           </v-col>
           <v-col class="d-flex" cols="12" md="6">
           <span class="my-auto">
@@ -72,7 +72,7 @@
           </span>
           </v-col>
           <v-col cols="12" md="6">
-            <v-img src="zbiorki.svg" />
+            <svg-icon name="zbiorki" width="100%" height="100%" />
           </v-col>
         </v-row>
     </v-container>
