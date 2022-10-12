@@ -6,7 +6,7 @@
           <v-icon>mdi-arrow-left-thin</v-icon>
           Powrót do strony głównej
         </v-btn>
-        <v-stepper v-model="e1">
+        <v-stepper v-model="e1" class="rounded-lg">
           <v-stepper-header>
             <v-stepper-step
               :complete="e1 > 1"
@@ -27,12 +27,15 @@
 
           <v-stepper-items>
             <v-stepper-content step="1">
-              <VuePhoneNumberInput v-model="number" :translations="translations" dark class="mb-5" />
+              <VuePhoneNumberInput
+                @update="num=$event"
+                :default-country-code="'PL'" :only-countries="['PL']" :required="true" v-model="number" :translations="translations" dark class="mb-10" />
 
               <v-btn
+                :disabled="!num.isValid"
                 large
                 block
-                class="rounded-lg"
+                class="rounded-lg mb-10"
                 color="primary"
                 @click="login()"
               >
@@ -44,8 +47,10 @@
               <v-otp-input
                 length="6"
                 type="number"
+                v-model="code"
               />
               <v-btn
+              @click="checkCode"
                 large
                 block
                 class="rounded-lg"
@@ -86,7 +91,9 @@ export default {
   data () {
     return {
       e1: 1,
+      num:{},
       number: '',
+      code: '',
       translations: {
         countrySelectorLabel: 'Kod kraju',
         countrySelectorError: 'Choisir un pays',
@@ -95,6 +102,7 @@ export default {
       }
     }
   },
+
   mounted () {
     this.appVerifier = new this.$fireModule.auth.RecaptchaVerifier('recaptcha-container', {
       size: 'invisible',
@@ -107,9 +115,13 @@ export default {
 
   methods: {
     async login () {
-      const loginWithNumber = await this.$fire.auth.signInWithPhoneNumber('+48504669559', this.appVerifier)
-      this.e1=2
-      console.log(loginWithNumber)
+      this.resp = await this.$fire.auth.signInWithPhoneNumber(`+48${this.number}`, this.appVerifier)
+      this.e1 = 2
+    },
+    checkCode(){
+      this.resp.confirm(code).then((a)=>{
+        console.log(a)
+      })
     }
   }
 }
