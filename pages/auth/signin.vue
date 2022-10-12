@@ -46,12 +46,21 @@
                 type="number"
               />
               <v-btn
+                large
+                block
+                class="rounded-lg"
                 color="primary"
               >
                 Dalej
               </v-btn>
 
-              <v-btn text @click="e1=1">
+              <v-btn
+                text
+                class="mt-3"
+                large
+                block
+                @click="e1=1"
+              >
                 Cofnij się
               </v-btn>
             </v-stepper-content>
