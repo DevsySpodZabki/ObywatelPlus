@@ -35,7 +35,7 @@
                 :disabled="!num.isValid"
                 large
                 block
-                class="rounded-lg mb-10"
+                class="rounded-lg mb-5"
                 color="primary"
                 @click="login()"
               >
