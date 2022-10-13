@@ -1,36 +1,35 @@
 <template>
-  <v-app>
-    <AppBar />
-      <v-row no-gutters>
-        <!-- <v-img
+  <div>
+    <v-row no-gutters>
+      <!-- <v-img
           :min-height="'calc(80vh - ' + $vuetify.application.top + 'px)'"
           src="./> -->
-        <v-theme-provider dark>
-          <v-container>
-            <v-lazy
-              v-model="isActive"
-              :options="{ threshold: .5 }"
-              min-height="200"
-              transition="fade-transition"
-            >
-              <v-row>
-                <v-col class="d-flex" cols="12" md="6">
-                  <span class="my-auto">
-                    <span
-                      :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-4']"
-                      class="font-weight-black"
-                    >
-                      Obywatel plus
-                    </span>
-                    <br>
-                    <br>
-                    <span
-                      :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
-                    >
-                      Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
-                    </span>
+      <v-theme-provider dark>
+        <v-container>
+          <v-lazy
+            v-model="isActive"
+            :options="{ threshold: .5 }"
+            min-height="200"
+            transition="fade-transition"
+          >
+            <v-row>
+              <v-col class="d-flex" cols="12" md="6">
+                <span class="my-auto">
+                  <span
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-4']"
+                    class="font-weight-black"
+                  >
+                    Obywatel plus
                   </span>
-                  <v-btn
+                  <br>
+                  <br>
+                  <span
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+                  >
+                    Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
+                  </span>
+                </span>
+                <v-btn
                   class="align-self-end"
                   fab
                   color="black"
@@ -40,19 +39,19 @@
                 >
                   <v-icon>mdi-chevron-double-down</v-icon>
                 </v-btn>
-                </v-col>
+              </v-col>
 
-                <v-col cols="12" md="6">
-                  <v-img src="wolontariusz.svg" />
-                </v-col>
-              </v-row>
-            </v-lazy>
-          </v-container>
-        </v-theme-provider>
-        <!-- </v-img> -->
-      </v-row>
+              <v-col cols="12" md="6">
+                <v-img src="wolontariusz.svg" />
+              </v-col>
+            </v-row>
+          </v-lazy>
+        </v-container>
+      </v-theme-provider>
+      <!-- </v-img> -->
+    </v-row>
 
-      <section id="mapa">
+    <section id="mapa">
       <v-container>
         <v-row>
           <v-col cols="12" md="6">
@@ -79,38 +78,35 @@
       </v-container>
     </section>
 
-      <v-container>
-        <v-row>
-          <v-col class="d-flex" cols="12" md="6">
-            <span class="my-auto">
-              <span
-                :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
-                class="font-weight-black"
-              >
-                Tworzenie zbiórek i budżetów obywatelskich
-              </span>
-              <br>
-              <br>
-              <span
-                :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
-              >
-                Stwórz zzbiórkę pieniędzy lub budżet obywatelski i zacznij zbierać pieniądze na wyznaczony cel. Możesz również przyczynić się do pomocy innym wpłacając pieniądze na inne zbiórki.
-              </span>
+    <v-container>
+      <v-row>
+        <v-col class="d-flex" cols="12" md="6">
+          <span class="my-auto">
+            <span
+              :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
+              class="font-weight-black"
+            >
+              Tworzenie zbiórek i budżetów obywatelskich
             </span>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-img src="zbiorki.svg" />
-          </v-col>
-        </v-row>
-      </v-container>
-  </v-app>
+            <br>
+            <br>
+            <span
+              :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+            >
+              Stwórz zzbiórkę pieniędzy lub budżet obywatelski i zacznij zbierać pieniądze na wyznaczony cel. Możesz również przyczynić się do pomocy innym wpłacając pieniądze na inne zbiórki.
+            </span>
+          </span>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-img src="zbiorki.svg" />
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 <script>
-import AppBar from '../components/app-bar.vue'
-
 export default {
   name: 'IndexPage',
-  components: { AppBar },
   data: () => ({
     isActive: false
   }),

@@ -1,8 +1,5 @@
 <template>
-<v-app>
-    <AppBar />
-    <v-main>
-    <v-card
+  <v-card
     :loading="loading"
     class="mx-auto my-12"
     max-width="374"
@@ -12,14 +9,13 @@
         color="deep-purple"
         height="10"
         indeterminate
-      ></v-progress-linear>
+      />
     </template>
 
     <v-img
       height="250"
       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
-    
+    />
 
     <v-card-title>Pomoc przy zbieraniu na rower.</v-card-title>
 
@@ -33,7 +29,7 @@
       <div>Cześć zbieram na rower.</div>
     </v-card-text>
 
-    <v-divider class="mx-4"></v-divider>
+    <v-divider class="mx-4" />
 
     <v-card-actions>
       <v-btn
@@ -49,31 +45,27 @@
       color="blue-grey"
       height="25"
     >
-      <template v-slot:default="{ value }">
+      <template #default="{ value }">
         <strong>{{ Math.ceil(value) }}% (X zł)</strong>
       </template>
     </v-progress-linear>
   </v-card>
-
-  <AppZbiorkaAdd />
-  
-</v-main>
-</v-app>
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      loading: false,
-      selection: 1,
-    }),
+export default {
+  name: 'ZbiorkiPage',
+  data: () => ({
+    loading: false,
+    selection: 1
+  }),
 
-    methods: {
-      reserve () {
-        this.loading = true
+  methods: {
+    reserve () {
+      this.loading = true
 
-        setTimeout(() => (this.loading = false), 2000)
-      },
-    },
+      setTimeout(() => (this.loading = false), 2000)
+    }
   }
+}
 </script>

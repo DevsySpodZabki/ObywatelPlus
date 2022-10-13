@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <AppBar />
     <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="8" lg="6">
         <v-btn class="mb-2 pl-2 rounded-lg" to="/" text>
@@ -29,8 +28,15 @@
           <v-stepper-items>
             <v-stepper-content step="1">
               <VuePhoneNumberInput
+                v-model="number"
+                dark
+                :default-country-code="'PL'"
+                :only-countries="['PL']"
+                :required="true"
+                :translations="translations"
+                class="mb-10"
                 @update="num=$event"
-                :default-country-code="'PL'" :only-countries="['PL']" :required="true" v-model="number" :translations="translations" dark class="mb-10" />
+              />
 
               <v-btn
                 :disabled="!num.isValid"
@@ -46,16 +52,16 @@
 
             <v-stepper-content step="2">
               <v-otp-input
+                v-model="code"
                 length="6"
                 type="number"
-                v-model="code"
               />
               <v-btn
-              @click="checkCode"
                 large
                 block
                 class="rounded-lg"
                 color="primary"
+                @click="checkCode"
               >
                 Dalej
               </v-btn>
@@ -90,15 +96,10 @@ export default {
   components: {
     VuePhoneNumberInput
   },
-  computed: {
-    ...mapGetters([
-      'loggedIn'
-    ])
-  },
   data () {
     return {
       e1: 1,
-      num:{},
+      num: {},
       number: '',
       code: '',
       translations: {
@@ -106,6 +107,19 @@ export default {
         countrySelectorError: 'Choisir un pays',
         phoneNumberLabel: 'Numer telefonu',
         example: 'Przykład:'
+      }
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
+  },
+
+  watch: {
+    loggedIn (newVal, oldVal) {
+      if (newVal) {
+        this.$router.push('/panel')
       }
     }
   },
@@ -122,20 +136,13 @@ export default {
     })
     this.appVerifier.render()
   },
-  watch: {
-    loggedIn (newVal, oldVal) {
-      if (newVal) {
-        this.$router.push('/panel')
-      }
-    }
-  },
   methods: {
     async login () {
       this.resp = await this.$fire.auth.signInWithPhoneNumber(`+48${this.number}`, this.appVerifier)
       this.e1 = 2
     },
-    checkCode(){
-      this.resp.confirm(this.code).then((a)=>{
+    checkCode () {
+      this.resp.confirm(this.code).then((a) => {
         console.log(a)
       })
     }
@@ -144,6 +151,6 @@ export default {
 </script>
 <style>
 .grecaptcha-badge{
-  z-index:9999;
+z-index:9999;
 }
 </style>
