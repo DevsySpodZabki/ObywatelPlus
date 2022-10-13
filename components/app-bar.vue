@@ -34,7 +34,7 @@
             Znajdź lub ogłoś pomoc na mapie
           </span>
         </v-btn>
-        <v-btn color="accent" text>
+        <v-btn color="accent" text to="/zbiorki">
           <v-icon>
             mdi-piggy-bank
           </v-icon>
