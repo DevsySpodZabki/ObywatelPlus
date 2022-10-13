@@ -1,7 +1,11 @@
 <template>
   <v-app-bar fixed light app>
     <v-toolbar-title>
-      Obywatel Plus
+          <router-link to="/">
+            <v-btn class="mx-0">
+            Obywatel Plus
+            </v-btn>
+        </router-link>
     </v-toolbar-title>
     <v-spacer />
     <v-menu left bottom>
@@ -34,7 +38,7 @@
             Znajdź lub ogłoś pomoc na mapie
           </span>
         </v-btn>
-        <v-btn color="accent" text>
+        <v-btn color="accent" text to="/zbiorki">
           <v-icon>
             mdi-piggy-bank
           </v-icon>

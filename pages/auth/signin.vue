@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <AppBar />
     <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="8" lg="6">
         <v-btn class="mb-2 pl-2 rounded-lg" to="/" text>
