@@ -14,7 +14,7 @@ export const mutations = {
       state.user = {
         uid: authUser.uid,
         displayName: authUser.displayName,
-				number: authUser.phoneNumber
+        number: authUser.phoneNumber
       }
     } else {
       state.user = null
