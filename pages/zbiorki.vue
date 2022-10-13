@@ -54,7 +54,10 @@
       </template>
     </v-progress-linear>
   </v-card>
-    </v-main>
+
+  <AppZbiorkaAdd />
+  
+</v-main>
 </v-app>
 </template>
 
