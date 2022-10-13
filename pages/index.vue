@@ -93,7 +93,7 @@
             <span
               :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
             >
-              Stwórz zzbiórkę pieniędzy lub budżet obywatelski i zacznij zbierać pieniądze na wyznaczony cel. Możesz również przyczynić się do pomocy innym wpłacając pieniądze na inne zbiórki.
+              Stwórz zbiórkę pieniędzy lub budżet obywatelski i zacznij zbierać pieniądze na wyznaczony cel. Możesz również przyczynić się do pomocy innym wpłacając pieniądze na inne zbiórki.
             </span>
           </span>
         </v-col>
