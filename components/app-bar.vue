@@ -44,11 +44,7 @@
         </v-btn>
         <v-dialog
           v-if="!loggedIn"
-<<<<<<< HEAD
           width="600"
-=======
-          width="500"
->>>>>>> origin/master
         >
           <template #activator="{ on, attrs }">
             <v-btn
@@ -60,13 +56,8 @@
               Zaloguj się
             </v-btn>
           </template>
-<<<<<<< HEAD
           <v-card class="rounded-lg pa-3" outlined>
             <v-card-title class="text-h4 mb-3">
-=======
-          <v-card class="rounded-lg">
-            <v-card-title class="text-h5">
->>>>>>> origin/master
               Zaloguj się
             </v-card-title>
             <v-card-text>
@@ -79,13 +70,6 @@
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
-<<<<<<< HEAD
-=======
-    <div
-      id="recaptcha-container"
-      class="justify-center flex"
-    />
->>>>>>> origin/master
   </div>
 </template>
 
