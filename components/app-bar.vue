@@ -20,13 +20,10 @@
             mdi-weather-night
           </v-icon>
         </v-btn>
-        <v-btn text to="/auth/signin">
+        <v-btn v-if="!loggedIn" text to="/auth/signin">
           Zaloguj się
         </v-btn>
-        <v-btn text to="/auth/signup">
-          Zarejestruj się
-        </v-btn>
-        <v-btn text to="/panel">
+        <v-btn v-else text to="/panel">
           Przejdź do panelu
         </v-btn>
         <v-btn color="accent" text>
@@ -51,8 +48,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'AppBar',
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
+  },
   methods: {
     toggleDarkTheme () {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark

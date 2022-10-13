@@ -107,6 +107,7 @@
 </template>
 <script>
 import AppBar from '../components/app-bar.vue'
+
 export default {
   name: 'IndexPage',
   components: { AppBar },
