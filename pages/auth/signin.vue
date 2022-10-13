@@ -82,11 +82,17 @@
 <script>
 import VuePhoneNumberInput from 'vue-phone-number-input'
 import 'vue-phone-number-input/dist/vue-phone-number-input.css'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'SigninPage',
   components: {
     VuePhoneNumberInput
+  },
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
   },
   data () {
     return {
@@ -104,6 +110,9 @@ export default {
   },
 
   mounted () {
+    if (this.loggedIn) {
+      this.$router.push('/panel')
+    }
     this.appVerifier = new this.$fireModule.auth.RecaptchaVerifier('recaptcha-container', {
       size: 'invisible',
       callback: (response) => {
@@ -112,14 +121,20 @@ export default {
     })
     this.appVerifier.render()
   },
-
+  watch: {
+    loggedIn (newVal, oldVal) {
+      if (newVal) {
+        this.$router.push('/panel')
+      }
+    }
+  },
   methods: {
     async login () {
       this.resp = await this.$fire.auth.signInWithPhoneNumber(`+48${this.number}`, this.appVerifier)
       this.e1 = 2
     },
     checkCode(){
-      this.resp.confirm(code).then((a)=>{
+      this.resp.confirm(this.code).then((a)=>{
         console.log(a)
       })
     }
