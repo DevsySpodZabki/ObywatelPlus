@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div>
     <v-app-bar fixed light app>
       <nuxt-link to="/" style="text-decoration: none; color: inherit;">
@@ -27,39 +26,6 @@
         </template>
       </v-menu>
       <v-toolbar-items>
-=======
-  <v-app-bar fixed light app>
-    <v-toolbar-title>
-      <router-link to="/">
-        <v-btn class="mx-0">
-          Obywatel Plus
-        </v-btn>
-      </router-link>
-    </v-toolbar-title>
-    <v-spacer />
-    <v-menu left bottom>
-      <template #activator="{ on, attrs }">
-        <v-btn
-          icon
-          aria-label="theme"
-          v-bind="attrs"
-          @click="toggleDarkTheme"
-          v-on="on"
-        >
-          <v-icon v-if="$vuetify.theme.dark">
-            mdi-white-balance-sunny
-          </v-icon>
-          <v-icon v-if="!$vuetify.theme.dark">
-            mdi-weather-night
-          </v-icon>
-        </v-btn>
-        <v-btn v-if="!loggedIn" text to="/auth/signin">
-          Zaloguj się
-        </v-btn>
-        <v-btn v-else text to="/panel">
-          Przejdź do panelu
-        </v-btn>
->>>>>>> origin/master
         <v-btn color="accent" text>
           <v-icon>
             mdi-map-marker-radius
