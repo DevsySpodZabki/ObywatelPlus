@@ -33,6 +33,7 @@
                   <v-btn
                   class="align-self-end"
                   fab
+                  color="black"
                   outlined
                   aria-label="goTo"
                   @click="$vuetify.goTo('#mapa')"
@@ -111,7 +112,19 @@ export default {
   components: { AppBar },
   data: () => ({
     isActive: false
-  })
+  }),
+  mounted () {
+    const theme = localStorage.getItem('dark')
+    if (theme) {
+      if (theme === 'true') {
+        this.$vuetify.theme.dark = true
+      } else {
+        this.$vuetify.theme.dark = false
+      }
+    } else {
+      localStorage.setItem('dark', 'true')
+    }
+  }
 }
 </script>
 
