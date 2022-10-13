@@ -2,14 +2,6 @@
   <v-app-bar fixed light app>
     <v-toolbar-title>
       Obywatel Plus
-      <v-btn color="accent" text to="/sponsor">
-        <v-icon>
-          mdi-cards-heart
-        </v-icon>
-        <span class="hidden-sm-and-down ml-2">
-          Wesprzyj nasz projekt
-        </span>
-      </v-btn>
     </v-toolbar-title>
     <v-spacer />
     <v-menu left bottom>
