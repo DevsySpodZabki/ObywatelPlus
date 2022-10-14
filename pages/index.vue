@@ -6,7 +6,7 @@
           src="./> -->
       <v-theme-provider dark>
         <div class="curved-background">
-        <v-container>
+          <v-container>
             <v-row>
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
@@ -26,34 +26,28 @@
                   <br>
                   <br>
                   <v-btn
-              color="red"
-              dark
-              rounded
-              v-bind="attrs"
-              v-on="on"
-            >
-              Załóż konto
-            </v-btn>
-            <v-btn
-              color="blue"
-              dark
-              rounded
-              v-bind="attrs"
-              v-on="on"
-              @click="$vuetify.goTo('#mapa')"
-            >
-              Zaoferuj lub poproś o pomoc
-            </v-btn>
-            <v-btn
-              color="blue"
-              dark
-              rounded
-              v-bind="attrs"
-              v-on="on"
-              @click="$vuetify.goTo('#zbiorki')"
-            >
-              Zbiórki pieniędzy
-            </v-btn>
+                    color="red"
+                    dark
+                    rounded
+                  >
+                    Załóż konto
+                  </v-btn>
+                  <v-btn
+                    color="blue"
+                    dark
+                    rounded
+                    @click="$vuetify.goTo('#mapa')"
+                  >
+                    Zaoferuj lub poproś o pomoc
+                  </v-btn>
+                  <v-btn
+                    color="blue"
+                    dark
+                    rounded
+                    @click="$vuetify.goTo('#zbiorki')"
+                  >
+                    Zbiórki pieniędzy
+                  </v-btn>
                 </span>
                 <v-btn
                   class="align-self-end"
@@ -71,8 +65,8 @@
                 <v-img src="wolontariusz.svg" />
               </v-col>
             </v-row>
-        </v-container>
-      </div>
+          </v-container>
+        </div>
       </v-theme-provider>
       <!-- </v-img> -->
     </v-row>
@@ -103,26 +97,26 @@
         </v-row>
       </v-container>
     </section>
-  <section id="zbiorki">
-    <v-container>
-      <v-row>
-        <v-col class="d-flex" cols="12" md="6">
-          <span class="my-auto">
-            <span
-              :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
-              class="font-weight-black"
-            >
-              Tworzenie zbiórek i budżetów obywatelskich
+    <section id="zbiorki">
+      <v-container>
+        <v-row>
+          <v-col class="d-flex" cols="12" md="6">
+            <span class="my-auto">
+              <span
+                :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
+                class="font-weight-black"
+              >
+                Tworzenie zbiórek i budżetów obywatelskich
+              </span>
+              <br>
+              <br>
+              <span
+                :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+              >
+                Stwórz zbiórkę pieniędzy lub budżet obywatelski i zacznij zbierać pieniądze na wyznaczony cel. Możesz również przyczynić się do pomocy innym wpłacając pieniądze na inne zbiórki.
+              </span>
             </span>
-            <br>
-            <br>
-            <span
-              :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
-            >
-              Stwórz zbiórkę pieniędzy lub budżet obywatelski i zacznij zbierać pieniądze na wyznaczony cel. Możesz również przyczynić się do pomocy innym wpłacając pieniądze na inne zbiórki.
-            </span>
-          </span>
-        </v-col>
+          </v-col>
           <v-col cols="12" md="6">
             <v-img src="zbiorki.svg" />
           </v-col>
@@ -137,6 +131,6 @@ export default {
   name: 'IndexPage',
   data: () => ({
     isActive: false
-  }),
+  })
 }
 </script>

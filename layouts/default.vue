@@ -7,7 +7,7 @@
       <slot />
       <div
         id="recaptcha-container"
-        class="justify-center flex"
+        class="d-none"
       />
     </v-main>
     <AppFooter />
@@ -30,14 +30,13 @@ export default {
     } else {
       localStorage.setItem('dark', 'true')
     }
-    
+
     Vue.prototype.appVerifier = new this.$fireModule.auth.RecaptchaVerifier('recaptcha-container', {
       size: 'invisible',
       callback: (response) => {
         console.log('captcha works')
       }
     })
-    Vue.prototype.appVerifier.render()
   }
 }
 </script>
