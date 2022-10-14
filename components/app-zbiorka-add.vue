@@ -9,19 +9,12 @@
         v-model="valid"
       >
         <v-text-field
-          v-model="fields.name"
-          :rules="[() => !!fields.name || 'Wymagane']"
-          label="Imię i nazwisko"
-          placeholder="Jan Kowalski"
-          required
-        />
-        <v-text-field
           v-model="fields.cel"
           :rules="[
             () => !!fields.cel || 'Wymagane',
             () => !!fields.cel && fields.cel.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
           ]"
-          label="Cel zbiórki"
+          label="Nazwa zbiórki"
           placeholder="Opisz swój cel"
           counter="25"
           required
@@ -38,19 +31,18 @@
           required
         />
         <v-text-field
-          v-model="fields.city"
-          :rules="[() => !!fields.city || 'Wymagane']"
+          v-model="fields.address"
+          :rules="[() => !!fields.address || 'Wymagane']"
           label="Miejscowosć"
           placeholder="Warszawa"
           required
         />
-        <v-text-field
-          v-model="fields.state"
-          :rules="[() => !!fields.state || 'Wymagane']"
-          label="Region"
-          required
-          placeholder="TX"
-        />
+        <v-slider
+          v-model="fields.goal"
+          :label="`Cel zbiórki ${fields.goal}zł`"
+          max="2000"
+          min="100"
+        ></v-slider>
       </v-form>
     </v-card-text>
     <v-divider class="mt-12" />
@@ -75,12 +67,10 @@
 export default {
   data: () => ({
     fields:{
-      name: null,
-      opis: null,
-      cel: null,
-      city: null,
-      state: null,
-      zip: null,
+      opis: '',
+      cel: '',
+      goal: 0,
+      address: ''
     },
     valid: false
   }),

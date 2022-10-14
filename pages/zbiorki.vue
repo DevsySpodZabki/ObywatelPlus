@@ -21,7 +21,7 @@
           <App-zbiorka-add @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="(item,key) in zbiorki" :key="key">
+          <v-col cols="12" md="6" lg="4" xl="3" v-for="(item,key) in zbiorki" :key="key">
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -39,7 +39,7 @@
                 src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
               />
 
-              <v-card-title>{{ item.name }}</v-card-title>
+              <v-card-title>{{ item.cel }}</v-card-title>
 
               <v-card-text>
                 <div class="text-subtitle-1">
@@ -69,7 +69,6 @@
                     block
                     color="deep-purple lighten-2"
                     text
-                    @click="reserve"
                   >
                     Wpłać pieniądze
                   </v-btn>
@@ -98,13 +97,6 @@ export default {
     this.$fire.database.ref("zbiorki").on('value', (snapshot)=>{
       this.zbiorki = snapshot.val()
     })
-  },
-  methods: {
-    reserve () {
-      this.loading = true
-
-      setTimeout(() => (this.loading = false), 2000)
-    }
   }
 }
 </script>
