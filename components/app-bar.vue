@@ -6,7 +6,6 @@
           Obywatel Plus
         </v-toolbar-title>
       </nuxt-link>
-      <v-spacer />
       <v-menu left bottom>
         <template #activator="{ on, attrs }">
           <v-btn
@@ -25,6 +24,7 @@
           </v-btn>
         </template>
       </v-menu>
+      <v-spacer />
       <v-toolbar-items>
         <v-btn color="accent" text to="/pomoc">
           <v-icon>
