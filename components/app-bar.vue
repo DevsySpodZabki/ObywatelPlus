@@ -25,6 +25,14 @@
       </v-menu>
       <v-spacer />
       <v-toolbar-items>
+        <v-btn text to="/inicjatywy">
+          <v-icon>
+            mdi-map-marker-radius
+          </v-icon>
+          <span class="hidden-sm-and-down ml-2">
+            Utwórz inicjatywę społeczną
+          </span>
+        </v-btn>
         <v-btn text to="/pomoc">
           <v-icon>
             mdi-map-marker-radius
