@@ -29,7 +29,7 @@
           <v-icon>
             mdi-map-marker-radius
           </v-icon>
-          <span class="hidden-sm-and-down ml-2">
+          <span class="hidden-md-and-down ml-2">
             Znajdź lub ogłoś pomoc na mapie
           </span>
         </v-btn>
@@ -37,7 +37,7 @@
           <v-icon>
             mdi-piggy-bank
           </v-icon>
-          <span class="hidden-sm-and-down ml-2">
+          <span class="hidden-md-and-down ml-2">
             Zbiórki & budżety obywatelskie
           </span>
         </v-btn>

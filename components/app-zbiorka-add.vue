@@ -86,7 +86,6 @@ export default {
 
   methods: {
     submit () {
-      this.$refs.form.validate()
       if (this.valid) {
         console.log('ready')
       }
