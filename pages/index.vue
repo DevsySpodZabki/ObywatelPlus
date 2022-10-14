@@ -1,17 +1,12 @@
 <template>
-  <div>
+  <v-app>
     <v-row no-gutters>
       <!-- <v-img
           :min-height="'calc(80vh - ' + $vuetify.application.top + 'px)'"
           src="./> -->
       <v-theme-provider dark>
+        <div class="curved-background">
         <v-container>
-          <v-lazy
-            v-model="isActive"
-            :options="{ threshold: .5 }"
-            min-height="200"
-            transition="fade-transition"
-          >
             <v-row>
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
@@ -76,8 +71,8 @@
                 <v-img src="wolontariusz.svg" />
               </v-col>
             </v-row>
-          </v-lazy>
         </v-container>
+      </div>
       </v-theme-provider>
       <!-- </v-img> -->
     </v-row>
@@ -134,8 +129,9 @@
         </v-row>
       </v-container>
     </section>
-  </div>
+  </v-app>
 </template>
+
 <script>
 export default {
   name: 'IndexPage',
@@ -146,4 +142,13 @@ export default {
 </script>
 
 <style>
+.curved-background {
+    background: linear-gradient(rgba(12, 40, 199, 0.2) 0%, rgba(214, 16, 16, 0.1) 100%);
+
+    border-bottom-left-radius: 50% 40%;
+    border-bottom-right-radius: 50% 40%;
+
+    height: 45%;
+    width: 100%;
+}
 </style>

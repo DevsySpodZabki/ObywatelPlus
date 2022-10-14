@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <v-col v-for="item in zbiorki">
+      <v-col v-for="item in zbiorki" v-bind:key="item.name">
         <v-card
           :loading="loading"
           class="mx-auto my-12"
