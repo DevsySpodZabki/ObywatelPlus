@@ -1,5 +1,7 @@
 <template>
-  <div>
+<div class="curved-background">
+  <v-main>
+    <v-container>
     <v-row>
       <v-col v-for="item in zbiorki" v-bind:key="item.name">
         <v-card
@@ -34,22 +36,27 @@
           <v-divider class="mx-4" />
 
           <v-card-actions>
+            <v-container>
+            <v-progress-linear
+            color="red lighten-2"
+            rounded
+            height="20"
+            stream
+          >
+            <template #default="{ value }">
+              <strong>Zebrano {{ Math.ceil(value) }}% (X zł)</strong>
+            </template>
+          </v-progress-linear>
             <v-btn
+              block
               color="deep-purple lighten-2"
               text
               @click="reserve"
             >
               Wpłać pieniądze
             </v-btn>
+            </v-container>
           </v-card-actions>
-          <v-progress-linear
-            color="blue-grey"
-            height="25"
-          >
-            <template #default="{ value }">
-              <strong>{{ Math.ceil(value) }}% (X zł)</strong>
-            </template>
-          </v-progress-linear>
         </v-card>
       </v-col>
     </v-row>
@@ -72,7 +79,9 @@
 
       <App-zbiorka-add @close="dialog=false" />
     </v-dialog>
-  </div>
+  </v-container>
+  </v-main>
+</div>
 </template>
 
 <script>
@@ -124,3 +133,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.curved-background {
+    background: linear-gradient(rgba(12, 40, 199, 0.2) 0%, rgba(214, 16, 16, 0.1) 100%);
+
+    border-bottom-left-radius: 50% 40%;
+    border-bottom-right-radius: 50% 40%;
+
+    height: 45%;
+    width: 100%;
+}
+</style>

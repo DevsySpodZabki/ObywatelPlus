@@ -68,9 +68,6 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa'
   ],
-  svgSprite: {
-    // elementClass: 'w-100'
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -81,7 +78,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: 'pl'
     }
   },
 
