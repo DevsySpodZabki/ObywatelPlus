@@ -30,7 +30,7 @@ export default {
     } else {
       localStorage.setItem('dark', 'true')
     }
-    
+
     Vue.prototype.appVerifier = new this.$fireModule.auth.RecaptchaVerifier('recaptcha-container', {
       size: 'invisible',
       callback: (response) => {
