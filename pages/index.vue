@@ -21,7 +21,7 @@
                   <span
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
                   >
-                    Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
+                    Projekt ten ma na celu skupić wiele rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
                   </span>
                   <br>
                   <br>
@@ -58,7 +58,7 @@
                 <v-btn
                   class="align-self-end"
                   fab
-                  color="black"
+                  color="red"
                   outlined
                   aria-label="goTo"
                   @click="$vuetify.goTo('#mapa')"
