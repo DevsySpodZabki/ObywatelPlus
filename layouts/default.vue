@@ -6,9 +6,9 @@
       <nuxt v-if="!$slots.default" />
       <slot />
       <div
-      id="recaptcha-container"
-      class="justify-center flex"
-    />
+        id="recaptcha-container"
+        class="justify-center flex"
+      />
     </v-main>
     <AppFooter />
   </v-app>
@@ -19,7 +19,7 @@ import Vue from 'vue'
 
 export default {
   name: 'DefaultLayout',
-  mounted(){
+  mounted () {
     Vue.prototype.appVerifier = new this.$fireModule.auth.RecaptchaVerifier('recaptcha-container', {
       size: 'invisible',
       callback: (response) => {
