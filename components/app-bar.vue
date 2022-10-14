@@ -46,11 +46,10 @@
           v-if="!loggedIn"
           width="600"
         >
-          <template #activator="{ on, attrs }">
+          <template #activator="{ on }">
             <v-btn
-              color="red lighten-2"
+              color="red"
               dark
-              v-bind="attrs"
               v-on="on"
             >
               Zaloguj się
