@@ -9,7 +9,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - ObywatelPlus',
+    titleTemplate: '%s • Narzędzia dla obywateli',
     title: 'ObywatelPlus',
     meta: [
       { charset: 'utf-8' },
@@ -24,6 +24,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/style.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -68,9 +69,6 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa'
   ],
-  svgSprite: {
-    // elementClass: 'w-100'
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -81,7 +79,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: 'pl'
     }
   },
 

@@ -1,17 +1,12 @@
 <template>
-  <div>
+  <v-app>
     <v-row no-gutters>
       <!-- <v-img
           :min-height="'calc(80vh - ' + $vuetify.application.top + 'px)'"
           src="./> -->
       <v-theme-provider dark>
+        <div class="curved-background">
         <v-container>
-          <v-lazy
-            v-model="isActive"
-            :options="{ threshold: .5 }"
-            min-height="200"
-            transition="fade-transition"
-          >
             <v-row>
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
@@ -26,13 +21,44 @@
                   <span
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
                   >
-                    Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
+                    Projekt ten ma na celu skupić wiele rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
                   </span>
+                  <br>
+                  <br>
+                  <v-btn
+              color="red"
+              dark
+              rounded
+              v-bind="attrs"
+              v-on="on"
+            >
+              Załóż konto
+            </v-btn>
+            <v-btn
+              color="blue"
+              dark
+              rounded
+              v-bind="attrs"
+              v-on="on"
+              @click="$vuetify.goTo('#mapa')"
+            >
+              Zaoferuj lub poproś o pomoc
+            </v-btn>
+            <v-btn
+              color="blue"
+              dark
+              rounded
+              v-bind="attrs"
+              v-on="on"
+              @click="$vuetify.goTo('#zbiorki')"
+            >
+              Zbiórki pieniędzy
+            </v-btn>
                 </span>
                 <v-btn
                   class="align-self-end"
                   fab
-                  color="black"
+                  color="red"
                   outlined
                   aria-label="goTo"
                   @click="$vuetify.goTo('#mapa')"
@@ -45,8 +71,8 @@
                 <v-img src="wolontariusz.svg" />
               </v-col>
             </v-row>
-          </v-lazy>
         </v-container>
+      </div>
       </v-theme-provider>
       <!-- </v-img> -->
     </v-row>
@@ -63,7 +89,7 @@
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
               >
-                Pomagaj z interaktywną mapą
+                Pomaganie z interaktywną mapą
               </span>
               <br>
               <br>
@@ -77,7 +103,7 @@
         </v-row>
       </v-container>
     </section>
-
+  <section id="zbiorki">
     <v-container>
       <v-row>
         <v-col class="d-flex" cols="12" md="6">
@@ -97,33 +123,20 @@
             </span>
           </span>
         </v-col>
-        <v-col cols="12" md="6">
-          <v-img src="zbiorki.svg" />
-        </v-col>
-      </v-row>
-    </v-container>
-  </div>
+          <v-col cols="12" md="6">
+            <v-img src="zbiorki.svg" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+  </v-app>
 </template>
+
 <script>
 export default {
   name: 'IndexPage',
   data: () => ({
     isActive: false
   }),
-  mounted () {
-    const theme = localStorage.getItem('dark')
-    if (theme) {
-      if (theme === 'true') {
-        this.$vuetify.theme.dark = true
-      } else {
-        this.$vuetify.theme.dark = false
-      }
-    } else {
-      localStorage.setItem('dark', 'true')
-    }
-  }
 }
 </script>
-
-<style>
-</style>

@@ -6,15 +6,13 @@
           Obywatel Plus
         </v-toolbar-title>
       </nuxt-link>
-      <v-spacer />
       <v-menu left bottom>
-        <template #activator="{ on, attrs }">
+        <template #activator="{ attrs }">
           <v-btn
             icon
             aria-label="theme"
             v-bind="attrs"
             @click="toggleDarkTheme"
-            v-on="on"
           >
             <v-icon v-if="$vuetify.theme.dark">
               mdi-white-balance-sunny
@@ -25,8 +23,9 @@
           </v-btn>
         </template>
       </v-menu>
+      <v-spacer />
       <v-toolbar-items>
-        <v-btn color="accent" text to="/pomoc">
+        <v-btn text to="/pomoc">
           <v-icon>
             mdi-map-marker-radius
           </v-icon>
@@ -34,7 +33,7 @@
             Znajdź lub ogłoś pomoc na mapie
           </span>
         </v-btn>
-        <v-btn color="accent" text to="/zbiorki">
+        <v-btn text to="/zbiorki">
           <v-icon>
             mdi-piggy-bank
           </v-icon>
@@ -46,11 +45,10 @@
           v-if="!loggedIn"
           width="600"
         >
-          <template #activator="{ on, attrs }">
+          <template #activator="{ on }">
             <v-btn
-              color="red lighten-2"
+              color="red"
               dark
-              v-bind="attrs"
               v-on="on"
             >
               Zaloguj się
