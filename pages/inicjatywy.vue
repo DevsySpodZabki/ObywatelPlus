@@ -18,7 +18,7 @@
               </v-btn>
             </template>
   
-            <App-zbiorka-add @close="dialog=false" />
+            <AppInicjatywaAdd @close="dialog=false" />
           </v-dialog>
           <v-row>
             <v-col v-for="item in inicjatywy" :key="item.name">
@@ -74,27 +74,23 @@
   </template>
   
   <script>
+import AppInicjatywaAdd from '../components/app-inicjatywa-add.vue';
   export default {
-    name: 'InicjatywyPage',
-    data () {
-      return {
-        loading: false,
-        selection: 1,
-        dialog: false
-      }
+    name: "InicjatywyPage",
+    data() {
+        return {
+            loading: false,
+            selection: 1,
+            dialog: false
+        };
     },
     methods: {
-      reserve () {
-        this.loading = true
-  
-        setTimeout(() => (this.loading = false), 2000)
-      }
+        reserve() {
+            this.loading = true;
+            setTimeout(() => (this.loading = false), 2000);
+        }
     },
-//     mounted(){
-//     this.$fire.database.ref("inicjatywy").on('votes', (snapshot)=>{
-//       this.inicjatywy = snapshot.val()
-//     })
-//   },
-  }
+    components: { AppInicjatywaAdd }
+}
   </script>
   

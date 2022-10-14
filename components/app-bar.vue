@@ -27,7 +27,7 @@
       <v-toolbar-items>
         <v-btn text to="/inicjatywy">
           <v-icon>
-            mdi-map-marker-radius
+            mdi-lightbulb
           </v-icon>
           <span class="hidden-sm-and-down ml-2">
             Utwórz inicjatywę społeczną
