@@ -132,15 +132,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.curved-background {
-    background: linear-gradient(rgba(12, 40, 199, 0.2) 0%, rgba(214, 16, 16, 0.1) 100%);
-
-    border-bottom-left-radius: 50% 40%;
-    border-bottom-right-radius: 50% 40%;
-
-    height: 45%;
-    width: 100%;
-}
-</style>
