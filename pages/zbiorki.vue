@@ -2,6 +2,24 @@
 <div class="curved-background">
   <v-main>
     <v-container>
+      <v-dialog
+      v-model="dialog"
+      width="700"
+    >
+      <template #activator="{ on}">
+        <v-btn
+          large
+          class="rounded-lg"
+          color="primary"
+          dark
+          v-on="on"
+        >
+          Stwórz zbiórkę
+        </v-btn>
+      </template>
+
+      <App-zbiorka-add @close="dialog=false" />
+    </v-dialog>
     <v-row>
       <v-col v-for="item in zbiorki" v-bind:key="item.name">
         <v-card
@@ -60,25 +78,6 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-dialog
-      v-model="dialog"
-      width="700"
-    >
-      <template #activator="{ on, attrs }">
-        <v-btn
-          large
-          class="rounded-lg"
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Dodaj zbiórkę
-        </v-btn>
-      </template>
-
-      <App-zbiorka-add @close="dialog=false" />
-    </v-dialog>
   </v-container>
   </v-main>
 </div>
