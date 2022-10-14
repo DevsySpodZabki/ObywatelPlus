@@ -21,7 +21,7 @@
           <App-zbiorka-add @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="item in zbiorki" :key="item.name">
+          <v-col v-for="(item,key) in zbiorki" :key="key">
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -91,37 +91,13 @@ export default {
       loading: false,
       selection: 1,
       dialog: false,
-      zbiorki: {
-        zb1: {
-          name: 'Pomoc przy zbieraniu na rower.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        },
-        zb2: {
-          name: 'Pomoc przy zbieraniu na rower 2.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        },
-        zb3: {
-          name: 'Pomoc przy zbieraniu na rower 3.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        },
-        zb4: {
-          name: 'Pomoc przy zbieraniu na rower 4.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        }
-      }
+      zbiorki: {}
     }
+  },
+  mounted(){
+    this.$fire.database.ref("zbiorki").on('value', (snapshot)=>{
+      this.zbiorki = snapshot.val()
+    })
   },
   methods: {
     reserve () {

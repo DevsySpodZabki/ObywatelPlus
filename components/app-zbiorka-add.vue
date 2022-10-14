@@ -9,17 +9,17 @@
         v-model="valid"
       >
         <v-text-field
-          v-model="name"
-          :rules="[() => !!name || 'Wymagane']"
+          v-model="fields.name"
+          :rules="[() => !!fields.name || 'Wymagane']"
           label="Imię i nazwisko"
           placeholder="Jan Kowalski"
           required
         />
         <v-text-field
-          v-model="cel"
+          v-model="fields.cel"
           :rules="[
-            () => !!cel || 'Wymagane',
-            () => !!cel && cel.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
+            () => !!fields.cel || 'Wymagane',
+            () => !!fields.cel && fields.cel.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
           ]"
           label="Cel zbiórki"
           placeholder="Opisz swój cel"
@@ -27,10 +27,10 @@
           required
         />
         <v-text-field
-          v-model="opis"
+          v-model="fields.opis"
           :rules="[
-            () => !!opis || 'Wymagane',
-            () => !!opis && opis.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
+            () => !!fields.opis || 'Wymagane',
+            () => !!fields.opis && fields.opis.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
           ]"
           label="Opis zbiórki"
           placeholder="Opisz swoją zbiórkę"
@@ -38,15 +38,15 @@
           required
         />
         <v-text-field
-          v-model="city"
-          :rules="[() => !!city || 'Wymagane']"
+          v-model="fields.city"
+          :rules="[() => !!fields.city || 'Wymagane']"
           label="Miejscowosć"
           placeholder="Warszawa"
           required
         />
         <v-text-field
-          v-model="state"
-          :rules="[() => !!state || 'Wymagane']"
+          v-model="fields.state"
+          :rules="[() => !!fields.state || 'Wymagane']"
           label="Region"
           required
           placeholder="TX"
@@ -74,20 +74,21 @@
 <script>
 export default {
   data: () => ({
-    errorMessages: '',
-    name: null,
-    opis: null,
-    cel: null,
-    city: null,
-    state: null,
-    zip: null,
+    fields:{
+      name: null,
+      opis: null,
+      cel: null,
+      city: null,
+      state: null,
+      zip: null,
+    },
     valid: false
   }),
-
   methods: {
     submit () {
       if (this.valid) {
-        console.log('ready')
+        this.$fire.database.ref("zbiorki").push(this.fields)
+        this.$emit("close")
       }
     }
   }
