@@ -29,8 +29,6 @@
               color="red"
               dark
               rounded
-              v-bind="attrs"
-              v-on="on"
             >
               Załóż konto
             </v-btn>
@@ -38,8 +36,6 @@
               color="blue"
               dark
               rounded
-              v-bind="attrs"
-              v-on="on"
               @click="$vuetify.goTo('#mapa')"
             >
               Zaoferuj lub poproś o pomoc
@@ -48,8 +44,6 @@
               color="blue"
               dark
               rounded
-              v-bind="attrs"
-              v-on="on"
               @click="$vuetify.goTo('#zbiorki')"
             >
               Zbiórki pieniędzy

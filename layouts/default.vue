@@ -7,7 +7,7 @@
       <slot />
       <div
         id="recaptcha-container"
-        class="justify-center flex"
+        class="d-none"
       />
     </v-main>
     <AppFooter />
@@ -37,7 +37,6 @@ export default {
         console.log('captcha works')
       }
     })
-    Vue.prototype.appVerifier.render()
   }
 }
 </script>
