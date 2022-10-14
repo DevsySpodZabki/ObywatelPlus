@@ -109,20 +109,7 @@ export default {
   name: 'IndexPage',
   data: () => ({
     isActive: false
-  }),
-  mounted () {
-    const theme = localStorage.getItem('dark')
-    if (theme) {
-      if (theme === 'true') {
-        this.$vuetify.theme.dark = true
-      } else {
-        this.$vuetify.theme.dark = false
-      }
-    } else {
-      localStorage.setItem('dark', 'true')
-    }
-  }
-}
+  })
 </script>
 
 <style>
