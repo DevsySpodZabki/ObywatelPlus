@@ -109,7 +109,8 @@ export default {
   name: 'IndexPage',
   data: () => ({
     isActive: false
-  })
+  }),
+}
 </script>
 
 <style>
