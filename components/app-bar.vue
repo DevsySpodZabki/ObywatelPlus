@@ -26,7 +26,7 @@
         </template>
       </v-menu>
       <v-toolbar-items>
-        <v-btn color="accent" text>
+        <v-btn color="accent" text to="/pomoc">
           <v-icon>
             mdi-map-marker-radius
           </v-icon>
