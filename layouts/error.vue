@@ -1,19 +1,20 @@
 <template>
-  <v-app dark>
-    <v-main>
-      <AppBar />
-      <v-container fluid margin="auto">
-        <v-img width="30%" height="40%" src="/404.svg" />
-        <v-row justify="center">
-          <h1>
+<div class="curved-background">
+  <v-row no-gutters justify="space-around">
+  <v-col class="d-flex justify-center" cols="12" md="6" justify-center>
+    <v-row></v-row>
+    <v-row><v-img width="60%" src="/404.svg" /></v-row>
+    <v-row></v-row>
+  </v-col>
+  </v-row>
+  <div class="d-flex justify-center">
+  <h1>
             <NuxtLink to="/">
               <span class="text-center">Strona główna</span>
             </NuxtLink>
-          </h1>
-        </v-row>
-      </v-container>
-    </v-main>
-  </v-app>
+  </h1>
+</div>
+</div>  
 </template>
 
 <script>
@@ -36,9 +37,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-h1 {
-  font-size: 20px;
-}
-</style>
