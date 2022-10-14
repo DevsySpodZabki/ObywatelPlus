@@ -28,6 +28,17 @@
                   >
                     Projekt ten ma na celu skupić wiele przydatnych rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
                   </span>
+                  <br>
+                  <br>
+                  <v-btn
+              color="red"
+              dark
+              rounded
+              v-bind="attrs"
+              v-on="on"
+            >
+              Załóż konto
+            </v-btn>
                 </span>
                 <v-btn
                   class="align-self-end"
