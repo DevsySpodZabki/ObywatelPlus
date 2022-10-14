@@ -39,6 +39,26 @@
             >
               Załóż konto
             </v-btn>
+            <v-btn
+              color="blue"
+              dark
+              rounded
+              v-bind="attrs"
+              v-on="on"
+              @click="$vuetify.goTo('#mapa')"
+            >
+              Zaoferuj lub poproś o pomoc
+            </v-btn>
+            <v-btn
+              color="blue"
+              dark
+              rounded
+              v-bind="attrs"
+              v-on="on"
+              @click="$vuetify.goTo('#zbiorki')"
+            >
+              Zbiórki pieniędzy
+            </v-btn>
                 </span>
                 <v-btn
                   class="align-self-end"
@@ -74,7 +94,7 @@
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
               >
-                Pomagaj z interaktywną mapą
+                Pomaganie z interaktywną mapą
               </span>
               <br>
               <br>
@@ -88,7 +108,7 @@
         </v-row>
       </v-container>
     </section>
-
+  <section id="zbiorki">
     <v-container>
       <v-row>
         <v-col class="d-flex" cols="12" md="6">
@@ -108,11 +128,12 @@
             </span>
           </span>
         </v-col>
-        <v-col cols="12" md="6">
-          <v-img src="zbiorki.svg" />
-        </v-col>
-      </v-row>
-    </v-container>
+          <v-col cols="12" md="6">
+            <v-img src="zbiorki.svg" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
   </div>
 </template>
 <script>

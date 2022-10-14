@@ -93,7 +93,7 @@ export default {
       code: '',
       translations: {
         countrySelectorLabel: 'Kod kraju',
-        countrySelectorError: 'Choisir un pays',
+        countrySelectorError: 'Wybierz kraj',
         phoneNumberLabel: 'Numer telefonu',
         example: 'Przykład:'
       }
@@ -131,8 +131,3 @@ export default {
   }
 }
 </script>
-<style>
-.grecaptcha-badge{
-z-index:9999;
-}
-</style>
