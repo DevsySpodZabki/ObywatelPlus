@@ -54,25 +54,27 @@
                   {{ item.user }}
                 </div>
 
-                <div>Zebrano {{ item.collected }}zł/{{ item.goal }}zł.</div>
+                <div>Cel zbiórki: {{ item.goal }} zł</div>
                 <br>
                 <div>{{ item.description }}</div>
+                <br>
+                <v-progress-linear
+                    color="blue"
+                    rounded
+                    height="25"
+                    stream
+                  >
+                    <template #default="{ value }">
+                      <strong>Zebrano już {{ Math.ceil(value) }}% ({{ item.collected }} zł)</strong>
+                    </template>
+                  </v-progress-linear>
               </v-card-text>
+              
 
               <v-divider class="mx-4" />
 
               <v-card-actions>
                 <v-container>
-                  <v-progress-linear
-                    color="red lighten-2"
-                    rounded
-                    height="20"
-                    stream
-                  >
-                    <template #default="{ value }">
-                      <strong>Zebrano {{ Math.ceil(value) }}% (X zł)</strong>
-                    </template>
-                  </v-progress-linear>
                   <v-btn
                     block
                     color="deep-purple lighten-2"
