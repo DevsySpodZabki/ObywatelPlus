@@ -21,7 +21,7 @@
           <App-zbiorka-add @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="item in zbiorki" :key="item.name">
+          <v-col cols="12" md="6" lg="4" xl="3" v-for="(item,key) in zbiorki" :key="key">
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -69,7 +69,6 @@
                     block
                     color="deep-purple lighten-2"
                     text
-                    @click="reserve"
                   >
                     Wpłać pieniądze
                   </v-btn>
@@ -91,44 +90,13 @@ export default {
       loading: false,
       selection: 1,
       dialog: false,
-      zbiorki: {
-        zb1: {
-          name: 'Pomoc przy zbieraniu na rower.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        },
-        zb2: {
-          name: 'Pomoc przy zbieraniu na rower 2.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        },
-        zb3: {
-          name: 'Pomoc przy zbieraniu na rower 3.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        },
-        zb4: {
-          name: 'Pomoc przy zbieraniu na rower 4.',
-          author: 'Jan Kowalski',
-          collected: 100,
-          goal: 1000,
-          description: 'Cześć zbieram na rower'
-        }
-      }
+      zbiorki: {}
     }
   },
-  methods: {
-    reserve () {
-      this.loading = true
-
-      setTimeout(() => (this.loading = false), 2000)
-    }
+  mounted(){
+    this.$fire.database.ref("zbiorki").on('value', (snapshot)=>{
+      this.zbiorki = snapshot.val()
+    })
   }
 }
 </script>

@@ -9,48 +9,33 @@
         v-model="valid"
       >
         <v-text-field
-          v-model="name"
-          :rules="[() => !!name || 'Wymagane']"
-          label="Imię i nazwisko"
-          placeholder="Jan Kowalski"
-          required
-        />
-        <v-text-field
-          v-model="cel"
+          v-model="fields.name"
           :rules="[
-            () => !!cel || 'Wymagane',
-            () => !!cel && cel.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
+            () => !!fields.name || 'Wymagane',
+            () => !!fields.name && fields.name.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
           ]"
-          label="Cel zbiórki"
+          label="Nazwa zbiórki"
           placeholder="Opisz swój cel"
           counter="25"
           required
         />
         <v-text-field
-          v-model="opis"
+          v-model="fields.description"
           :rules="[
-            () => !!opis || 'Wymagane',
-            () => !!opis && opis.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
+            () => !!fields.description || 'Wymagane',
+            () => !!fields.description && fields.description.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
           ]"
           label="Opis zbiórki"
           placeholder="Opisz swoją zbiórkę"
           counter="250"
           required
         />
-        <v-text-field
-          v-model="city"
-          :rules="[() => !!city || 'Wymagane']"
-          label="Miejscowosć"
-          placeholder="Warszawa"
-          required
-        />
-        <v-text-field
-          v-model="state"
-          :rules="[() => !!state || 'Wymagane']"
-          label="Region"
-          required
-          placeholder="TX"
-        />
+        <v-slider
+          v-model="fields.goal"
+          :label="`Cel zbiórki ${fields.goal}zł`"
+          max="2000"
+          min="100"
+        ></v-slider>
       </v-form>
     </v-card-text>
     <v-divider class="mt-12" />
@@ -74,21 +59,23 @@
 <script>
 export default {
   data: () => ({
-    errorMessages: '',
-    name: null,
-    opis: null,
-    cel: null,
-    city: null,
-    state: null,
-    zip: null,
+    fields:{},
+    defaultFields:{
+      description: '',
+      name: '',
+      goal: 0,
+    },
     valid: false
   }),
-
+  mounted(){
+    this.fields = this.defaultFields
+  },
   methods: {
     submit () {
-      this.$refs.form.validate()
       if (this.valid) {
-        console.log('ready')
+        this.$fire.database.ref("zbiorki").push(this.fields)
+        this.fields = this.defaultFields
+        this.$emit("close")
       }
     }
   }
