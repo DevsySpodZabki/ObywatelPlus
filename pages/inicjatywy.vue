@@ -78,16 +78,16 @@ export default {
   name: 'InicjatywyPage',
   data () {
     return {
+      inicjatywy: {},
       loading: false,
       selection: 1,
       dialog: false
     }
   },
-  methods: {
-    reserve () {
-      this.loading = true
-      setTimeout(() => (this.loading = false), 2000)
-    }
+  mounted () {
+    this.$fire.database.ref('inicjatywy').on('value', (snapshot) => {
+      this.inicjatywy = snapshot.val()
+    })
   }
 }
 </script>

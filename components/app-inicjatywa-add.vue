@@ -1,7 +1,7 @@
 <template>
   <v-card ref="form">
     <v-card-title>
-      Dodaj nową zbiórkę
+      Dodaj nową inicjatywę
     </v-card-title>
     <v-card-text>
       <v-form
@@ -9,17 +9,15 @@
         v-model="valid"
       >
         <v-text-field
-          v-model="name"
-          :rules="[() => !!name || 'Wymagane']"
+          v-model="fields.user"
           label="Imię i nazwisko"
-          placeholder="Jan Kowalski"
-          required
+          readonly
         />
         <v-text-field
-          v-model="cel"
+          v-model="fields.name"
           :rules="[
-            () => !!cel || 'Wymagane',
-            () => !!cel && cel.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
+            () => !!fields.name || 'Wymagane',
+            () => !!fields.name && fields.name <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
           ]"
           label="Nazwa inicjatywy"
           placeholder="Nazwa inicjatywy"
@@ -38,22 +36,22 @@
           required
         />
         <v-text-field
-          v-model="gmina"
-          :rules="[() => !!city || 'Wymagane']"
+          v-model="fields.gmina"
+          :rules="[() => !!fields.gmina || 'Wymagane']"
           label="Gmina"
           placeholder="Warszawa"
           required
         />
         <v-text-field
-          v-model="city"
-          :rules="[() => !!city || 'Wymagane']"
+          v-model="fields.city"
+          :rules="[() => !!fields.city || 'Wymagane']"
           label="Miasto"
           placeholder="Warszawa"
           required
         />
         <v-text-field
-          v-model="state"
-          :rules="[() => !!state || 'Wymagane']"
+          v-model="fields.zip"
+          :rules="[() => !!fields.zip || 'Wymagane']"
           label="Kod Pocztowy"
           required
           placeholder="00-000"
@@ -80,19 +78,24 @@
 
 <script>
 export default {
-  data: () => ({
-    errorMessages: '',
-    name: null,
-    opis: null,
-    cel: null,
-    gmina: null,
-    city: null,
-    state: null,
-    zip: null,
-    valid: false
-  }),
+  data () {
+    return {
+      fields: {
+        name: '',
+        opis: '',
+        gmina: '',
+        zip: '',
+        city: '',
+        user: this.$store.state.user.displayName
+      },
+      valid: false
+    }
+  },
 
   methods: {
+    submit(){
+      
+    }
   }
 }
 </script>
