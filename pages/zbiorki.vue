@@ -62,7 +62,8 @@
                     color="blue"
                     rounded
                     height="25"
-                    stream
+                    striped
+                    :value="collected_chart(item)"
                   >
                     <template #default="{ value }">
                       <strong>Zebrano już {{ Math.ceil(value) }}% ({{ item.collected }} zł)</strong>
@@ -114,6 +115,11 @@ export default {
     this.$fire.database.ref('zbiorki').on('value', (snapshot) => {
       this.zbiorki = snapshot.val()
     })
+  },
+  methods: {
+    collected_chart (item) {
+      return item.collected / item.goal * 100;
   }
+  },
 }
 </script>
