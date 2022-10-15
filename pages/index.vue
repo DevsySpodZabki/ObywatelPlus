@@ -25,6 +25,7 @@
                   </span>
                   <br>
                   <br>
+                  <v-container>
                   <v-btn
                     color="red"
                     dark
@@ -48,6 +49,15 @@
                   >
                     Zbiórki pieniędzy
                   </v-btn>
+                  <v-btn
+                    color="blue"
+                    dark
+                    rounded
+                    @click="$vuetify.goTo('#ideas')"
+                  >
+                    Inicjatywy społeczne
+                  </v-btn>
+                </v-container>
                 </span>
                 <v-btn
                   class="align-self-end"
@@ -123,6 +133,32 @@
         </v-row>
       </v-container>
     </section>
+    <section id="ideas">
+      <v-container>
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-img src="ideas.svg" />
+          </v-col>
+          <v-col class="d-flex" cols="12" md="6">
+            <span class="my-auto">
+              <span
+                :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
+                class="font-weight-black"
+              >
+                Dziel się inicjatywami społecznymi dla Twojej gminy lub powiatu
+              </span>
+              <br>
+              <br>
+              <span
+                :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+              >
+                Podziel się Twoim pomysłem na zmiany w Twojej gminie lub powiecie. Zbieraj głosy oraz opinie innych użytkowników na temat Twojego pomysłu. Możesz również podpiąć zbiórkę pieniędzy pod Twój pomysł.
+              </span>
+            </span>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
   </v-app>
 </template>
 
@@ -134,3 +170,4 @@ export default {
   })
 }
 </script>
+
