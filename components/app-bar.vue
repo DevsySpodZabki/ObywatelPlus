@@ -80,11 +80,11 @@
               class="px-7"
               v-on="on"
             >
-              Konto
+              {{ $store.state.user.displayName }}
             </v-btn>
           </template>
           <v-list>
-          <v-list-item @click="dialog=true">
+            <v-list-item @click="dialog=true">
               <v-list-item-title>Uzupełnij Imię i Nazwisko</v-list-item-title>
             </v-list-item>
             <v-list-item @click="logout">
@@ -95,36 +95,43 @@
       </v-toolbar-items>
     </v-app-bar>
     <v-dialog
-        v-model="dialog"
-        persistent
-        width="500"
-      >
-        <v-card>
-          <v-card-title class="text-h5">
-            Uzupełnij swoje imię i nazwisko
-          </v-card-title>
+      v-model="dialog"
+      persistent
+      width="500"
+    >
+      <v-card>
+        <v-card-title class="text-h5">
+          Uzupełnij swoje imię i nazwisko
+        </v-card-title>
 
-          <v-card-text>
-            <v-text-field
-              v-model="name"
-              label="Wpisz swoje imię i nazwisko"
-            />
-          </v-card-text>
+        <v-card-text>
+          <v-text-field
+            v-model="name"
+            label="Wpisz swoje imię i nazwisko"
+          />
+        </v-card-text>
 
-          <v-divider />
+        <v-divider />
 
-          <v-card-actions>
-            <v-spacer />
-            <v-btn
-              color="primary"
-              text
-              @click="next"
-            >
-              Dalej
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn
+            color="secondary"
+            text
+            @click="dialog=false"
+          >
+            Anuluj
+          </v-btn>
+          <v-btn
+            color="primary"
+            text
+            @click="next"
+          >
+            Dalej
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -133,18 +140,19 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'AppBar',
+
+  data () {
+    return {
+      dialog: false,
+      name: this.$store.state.user.displayName
+    }
+  },
   computed: {
     ...mapGetters([
       'loggedIn'
     ])
   },
-  data(){
-    return {
-      dialog:false,
-      name:""
-    }
-  },
-  mounted(){
+  mounted () {
     if (this.loggedIn && !this.$store.state.user.displayName) {
       this.dialog = true
     }
@@ -159,7 +167,7 @@ export default {
       this.$router.push('/')
     },
     next () {
-      this.dialog=false
+      this.dialog = false
       this.$fire.auth.currentUser.updateProfile({ displayName: this.name }).then(() => {
         document.location.reload()
       })
