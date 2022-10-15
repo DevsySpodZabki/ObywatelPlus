@@ -80,7 +80,7 @@
               class="px-7"
               v-on="on"
             >
-              Konto
+              {{ $store.state.user.displayName }}
             </v-btn>
           </template>
           <v-list>
@@ -116,6 +116,13 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
+            color="secondary"
+            text
+            @click="dialog=false"
+          >
+            Anuluj
+          </v-btn>
+          <v-btn
             color="primary"
             text
             @click="next"
@@ -133,16 +140,17 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'AppBar',
-  computed: {
-    ...mapGetters([
-      'loggedIn'
-    ])
-  },
+
   data () {
     return {
       dialog: false,
       name: this.$store.state.user.displayName
     }
+  },
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
   },
   mounted () {
     if (this.loggedIn && !this.$store.state.user.displayName) {
