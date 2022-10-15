@@ -81,7 +81,7 @@ export default {
   data () {
     return {
       fields: {},
-      defaultFields:{
+      defaultFields: {
         name: '',
         opis: '',
         gmina: '',
@@ -92,11 +92,11 @@ export default {
       valid: false
     }
   },
-  mounted(){
+  mounted () {
     this.fields = this.defaultFields
   },
   methods: {
-    submit(){
+    submit () {
       if (this.valid) {
         this.$fire.database.ref('inicjatywy').push(this.fields)
         this.fields = this.defaultFields

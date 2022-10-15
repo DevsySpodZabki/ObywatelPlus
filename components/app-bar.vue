@@ -79,7 +79,7 @@
               v-bind="attrs"
               class="px-7"
               v-on="on"
-            > 
+            >
               {{ account }}
             </v-btn>
           </template>
@@ -151,11 +151,11 @@ export default {
     ...mapGetters([
       'loggedIn'
     ]),
-    account(){
-      if(this.$store.state.user.displayName){
-        return this.$store.state.user.displayName.split(" ")[0]
-      }else{
-        return "Konto"
+    account () {
+      if (this.$store.state.user.displayName) {
+        return this.$store.state.user.displayName.split(' ')[0]
+      } else {
+        return 'Konto'
       }
     }
   },
