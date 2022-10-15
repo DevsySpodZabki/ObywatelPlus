@@ -14,11 +14,19 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'description', content: 'Aplikacja dla obywatela' },
+      { name: 'keywords', content: 'ObywatelPlus' },
+      { property: 'og:site_name', content: 'ObywatelPlus' },
+      { property: 'og:url', content: 'https://ObywatelPlus.tk' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'ObywatelPlus' },
+      { property: 'og:description', content: 'Aplikacja dla obywatela'},
+      { property: 'og:image', content: 'https://obywatelplus.tk/icon.png'},
+      { property: 'og:image:alt', content: 'Ikona ObywatelPlus'},
+      { name: 'format-detection', content: 'telephone=yes' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { hid: 'icon', rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
