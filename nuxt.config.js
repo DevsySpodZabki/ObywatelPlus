@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: true,
+  ssr: false,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -64,6 +64,7 @@ export default {
           appId: '1:614724324012:web:07a412e59b88cf1522ed09'
         },
         services: {
+          database: true,
           auth: {
             initialize: {
               onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION'
