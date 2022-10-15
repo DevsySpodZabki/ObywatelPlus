@@ -39,7 +39,7 @@
                 src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
               />
 
-              <v-card-title>{{ item.cel }}</v-card-title>
+              <v-card-title>{{ item.name }}</v-card-title>
 
               <v-card-text>
                 <div class="text-subtitle-1">

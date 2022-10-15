@@ -9,10 +9,10 @@
         v-model="valid"
       >
         <v-text-field
-          v-model="fields.cel"
+          v-model="fields.name"
           :rules="[
-            () => !!fields.cel || 'Wymagane',
-            () => !!fields.cel && fields.cel.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
+            () => !!fields.name || 'Wymagane',
+            () => !!fields.name && fields.name.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
           ]"
           label="Nazwa zbiórki"
           placeholder="Opisz swój cel"
@@ -20,21 +20,14 @@
           required
         />
         <v-text-field
-          v-model="fields.opis"
+          v-model="fields.description"
           :rules="[
-            () => !!fields.opis || 'Wymagane',
-            () => !!fields.opis && fields.opis.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
+            () => !!fields.description || 'Wymagane',
+            () => !!fields.description && fields.description.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
           ]"
           label="Opis zbiórki"
           placeholder="Opisz swoją zbiórkę"
           counter="250"
-          required
-        />
-        <v-text-field
-          v-model="fields.address"
-          :rules="[() => !!fields.address || 'Wymagane']"
-          label="Miejscowosć"
-          placeholder="Warszawa"
           required
         />
         <v-slider
@@ -67,10 +60,9 @@
 export default {
   data: () => ({
     fields:{
-      opis: '',
-      cel: '',
+      description: '',
+      name: '',
       goal: 0,
-      address: ''
     },
     valid: false
   }),
