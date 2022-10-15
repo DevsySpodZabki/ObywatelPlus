@@ -35,7 +35,7 @@
           :label="`Cel zbiórki ${fields.goal}zł`"
           max="2000"
           min="100"
-        ></v-slider>
+        />
       </v-form>
     </v-card-text>
     <v-divider class="mt-12" />
@@ -59,23 +59,23 @@
 <script>
 export default {
   data: () => ({
-    fields:{},
-    defaultFields:{
+    fields: {},
+    defaultFields: {
       description: '',
       name: '',
-      goal: 0,
+      goal: 0
     },
     valid: false
   }),
-  mounted(){
+  mounted () {
     this.fields = this.defaultFields
   },
   methods: {
     submit () {
       if (this.valid) {
-        this.$fire.database.ref("zbiorki").push(this.fields)
+        this.$fire.database.ref('zbiorki').push(this.fields)
         this.fields = this.defaultFields
-        this.$emit("close")
+        this.$emit('close')
       }
     }
   }

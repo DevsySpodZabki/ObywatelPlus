@@ -21,7 +21,14 @@
           <App-zbiorka-add @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col cols="12" md="6" lg="4" xl="3" v-for="(item,key) in zbiorki" :key="key">
+          <v-col
+            v-for="(item,key) in zbiorki"
+            :key="key"
+            cols="12"
+            md="6"
+            lg="4"
+            xl="3"
+          >
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -93,8 +100,8 @@ export default {
       zbiorki: {}
     }
   },
-  mounted(){
-    this.$fire.database.ref("zbiorki").on('value', (snapshot)=>{
+  mounted () {
+    this.$fire.database.ref('zbiorki').on('value', (snapshot) => {
       this.zbiorki = snapshot.val()
     })
   }

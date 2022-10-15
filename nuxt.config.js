@@ -20,9 +20,9 @@ export default {
       { property: 'og:url', content: 'https://ObywatelPlus.tk' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'ObywatelPlus' },
-      { property: 'og:description', content: 'Aplikacja dla obywatela'},
-      { property: 'og:image', content: 'https://obywatelplus.tk/icon.png'},
-      { property: 'og:image:alt', content: 'Ikona ObywatelPlus'},
+      { property: 'og:description', content: 'Aplikacja dla obywatela' },
+      { property: 'og:image', content: 'https://obywatelplus.tk/icon.png' },
+      { property: 'og:image:alt', content: 'Ikona ObywatelPlus' },
       { name: 'format-detection', content: 'telephone=yes' }
     ],
     link: [
@@ -64,7 +64,7 @@ export default {
           appId: '1:614724324012:web:07a412e59b88cf1522ed09'
         },
         services: {
-          database:true,
+          database: true,
           auth: {
             initialize: {
               onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION'

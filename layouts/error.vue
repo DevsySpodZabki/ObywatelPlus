@@ -18,10 +18,8 @@
 </template>
 
 <script>
-import AppBar from '../components/app-bar.vue'
 export default {
   name: 'EmptyLayout',
-  components: { AppBar },
   layout: 'empty',
   props: {
     error: {
