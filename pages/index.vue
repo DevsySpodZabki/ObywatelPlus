@@ -11,7 +11,7 @@
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
                   <span
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-4']"
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
                     class="font-weight-black"
                   >
                     Obywatel plus
@@ -19,7 +19,7 @@
                   <br>
                   <br>
                   <span
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+                    class="headline"
                   >
                     Projekt ten ma na celu skupić wiele rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
                   </span>
@@ -30,10 +30,12 @@
                       color="red"
                       dark
                       rounded
+                      class="mb-1"
                     >
                       Załóż konto
                     </v-btn>
                     <v-btn
+                    class="mb-1"
                       color="blue"
                       dark
                       rounded
@@ -42,6 +44,7 @@
                       Zaoferuj lub poproś o pomoc
                     </v-btn>
                     <v-btn
+                    class="mb-1"
                       color="blue"
                       dark
                       rounded
@@ -50,6 +53,7 @@
                       Zbiórki pieniędzy
                     </v-btn>
                     <v-btn
+                    class="mb-1"
                       color="blue"
                       dark
                       rounded
@@ -71,7 +75,7 @@
                 </v-btn>
               </v-col>
 
-              <v-col cols="12" md="6">
+              <v-col cols="12" md="6" class="my-auto">
                 <v-img src="wolontariusz.svg" />
               </v-col>
             </v-row>
@@ -84,7 +88,7 @@
     <section id="mapa">
       <v-container>
         <v-row>
-          <v-col cols="12" md="6">
+          <v-col cols="12" md="6" class="my-auto">
             <v-img src="lokalizacja1.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" md="6">
@@ -98,7 +102,7 @@
               <br>
               <br>
               <span
-                :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+                class="headline"
               >
                 Stwórz obszar lub punkt lokalizacji, w którym zaoferujesz lub poprosisz innych o pomoc. Możesz skontaktować się z innymi za pomocą wbudowanego czatu.
               </span>
@@ -121,13 +125,13 @@
               <br>
               <br>
               <span
-                :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+                class="headline"
               >
                 Stwórz zbiórkę pieniędzy lub budżet obywatelski i zacznij zbierać pieniądze na wyznaczony cel. Możesz również przyczynić się do pomocy innym wpłacając pieniądze na inne zbiórki.
               </span>
             </span>
           </v-col>
-          <v-col cols="12" md="6">
+          <v-col cols="12" md="6" class="my-auto">
             <v-img src="zbiorki.svg" />
           </v-col>
         </v-row>
@@ -136,7 +140,7 @@
     <section id="ideas">
       <v-container>
         <v-row>
-          <v-col cols="12" md="6">
+          <v-col cols="12" md="6" class="my-auto">
             <v-img src="ideas.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" md="6">
@@ -150,7 +154,7 @@
               <br>
               <br>
               <span
-                :class="[$vuetify.breakpoint.smAndDown ? 'display-1': 'display-1']"
+                class="headline"
               >
                 Podziel się Twoim pomysłem na zmiany w Twojej gminie lub powiecie. Zbieraj głosy oraz opinie innych użytkowników na temat Twojego pomysłu. Możesz również podpiąć zbiórkę pieniędzy pod Twój pomysł.
               </span>
