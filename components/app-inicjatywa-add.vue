@@ -80,7 +80,8 @@
 export default {
   data () {
     return {
-      fields: {
+      fields: {},
+      defaultFields:{
         name: '',
         opis: '',
         gmina: '',
@@ -91,10 +92,12 @@ export default {
       valid: false
     }
   },
-
+  mounted(){
+    this.fields = this.defaultFields
+  },
   methods: {
     submit(){
-      
+
     }
   }
 }
