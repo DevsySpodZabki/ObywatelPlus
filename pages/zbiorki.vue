@@ -51,7 +51,7 @@
 
               <v-card-text>
                 <div class="text-subtitle-1">
-                  {{ item.author }}
+                  {{ item.user }}
                 </div>
 
                 <div>Zebrano {{ item.collected }}zł/{{ item.goal }}zł.</div>
