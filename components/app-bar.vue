@@ -79,8 +79,8 @@
               v-bind="attrs"
               class="px-7"
               v-on="on"
-            >
-              {{ $store.state.user.displayName }}
+            > 
+              {{ account }}
             </v-btn>
           </template>
           <v-list>
@@ -150,7 +150,14 @@ export default {
   computed: {
     ...mapGetters([
       'loggedIn'
-    ])
+    ]),
+    account(){
+      if(this.$store.state.user.displayName){
+        return this.$store.state.user.displayName.split(" ")[0]
+      }else{
+        return "Konto"
+      }
+    }
   },
   mounted () {
     if (this.loggedIn && !this.$store.state.user.displayName) {
