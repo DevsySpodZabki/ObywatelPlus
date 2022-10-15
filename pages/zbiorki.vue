@@ -62,15 +62,13 @@
                     color="blue"
                     rounded
                     height="25"
-                    striped
-                    :value="collected_chart(item)"
+                    stream
                   >
                     <template #default="{ value }">
                       <strong>Zebrano już {{ Math.ceil(value) }}% ({{ item.collected }} zł)</strong>
                     </template>
                   </v-progress-linear>
               </v-card-text>
-              
 
               <v-divider class="mx-4" />
 
