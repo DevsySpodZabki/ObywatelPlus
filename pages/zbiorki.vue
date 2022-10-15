@@ -63,11 +63,10 @@
                     rounded
                     height="25"
                     :value="collected_chart(item)"
-                    striped
                     stream
                   >
                     <template #default="{ value }">
-                      <strong>Zebrano już {{ Math.ceil(value) }}% ({{ item.collected }} zł)</strong>
+                      <strong>Zebrano już {{ Math.ceil(Math.round(value * 100)) / 100 }}% ({{ item.collected }} zł)</strong>
                     </template>
                   </v-progress-linear>
               </v-card-text>
