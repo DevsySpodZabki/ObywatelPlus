@@ -20,9 +20,9 @@ export default {
       { property: 'og:url', content: 'https://ObywatelPlus.tk' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'ObywatelPlus' },
-      { property: 'og:description', content: 'Aplikacja dla obywatela'},
-      { property: 'og:image', content: 'https://obywatelplus.tk/icon.png'},
-      { property: 'og:image:alt', content: 'Ikona ObywatelPlus'},
+      { property: 'og:description', content: 'Aplikacja dla obywatela' },
+      { property: 'og:image', content: 'https://obywatelplus.tk/icon.png' },
+      { property: 'og:image:alt', content: 'Ikona ObywatelPlus' },
       { name: 'format-detection', content: 'telephone=yes' }
     ],
     link: [
