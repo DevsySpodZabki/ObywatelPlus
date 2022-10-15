@@ -59,7 +59,6 @@
                     block
                     color="deep-purple lighten-2"
                     text
-                    @click="reserve"
                   >
                     Przekaż głos
                   </v-btn>

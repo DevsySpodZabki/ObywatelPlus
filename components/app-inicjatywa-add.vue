@@ -17,7 +17,7 @@
           v-model="fields.name"
           :rules="[
             () => !!fields.name || 'Wymagane',
-            () => !!fields.name && fields.name <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
+            () => !!fields.name && fields.name.length <= 25 || 'Cel zbiórki nie może być dłuższy niż 25 znaków'
           ]"
           label="Nazwa inicjatywy"
           placeholder="Nazwa inicjatywy"
@@ -25,10 +25,10 @@
           required
         />
         <v-text-field
-          v-model="opis"
+          v-model="fields.opis"
           :rules="[
-            () => !!opis || 'Wymagane',
-            () => !!opis && opis.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
+            () => !!fields.opis || 'Wymagane',
+            () => !!fields.opis && fields.opis.length <= 250 || 'Opis zbiórki nie może być dłuższy niż 250 znaków'
           ]"
           label="Opis inicjatywy"
           placeholder="Opisz swoją inicjatywy"
@@ -97,7 +97,11 @@ export default {
   },
   methods: {
     submit(){
-
+      if (this.valid) {
+        this.$fire.database.ref('inicjatywy').push(this.fields)
+        this.fields = this.defaultFields
+        this.$emit('close')
+      }
     }
   }
 }
