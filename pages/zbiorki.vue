@@ -59,17 +59,16 @@
                 <div>{{ item.description }}</div>
                 <br>
                 <v-progress-linear
-                    color="blue"
-                    rounded
-                    height="25"
-                    stream
-                  >
-                    <template #default="{ value }">
-                      <strong>Zebrano już {{ Math.ceil(value) }}% ({{ item.collected }} zł)</strong>
-                    </template>
-                  </v-progress-linear>
+                  color="blue"
+                  rounded
+                  height="25"
+                  stream
+                >
+                  <template #default="{ value }">
+                    <strong>Zebrano już {{ Math.ceil(value) }}% ({{ item.collected }} zł)</strong>
+                  </template>
+                </v-progress-linear>
               </v-card-text>
-              
 
               <v-divider class="mx-4" />
 

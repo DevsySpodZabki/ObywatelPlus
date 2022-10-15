@@ -27,9 +27,9 @@
                   <br>
                   <v-container>
                     <v-btn
-                    outlined
-                    large
-                    class="mb-1"
+                      outlined
+                      large
+                      class="mb-1"
                       color="blue"
                       dark
                       rounded
@@ -38,9 +38,9 @@
                       Zaoferuj lub poproś o pomoc
                     </v-btn>
                     <v-btn
-                    outlined
-                    large
-                    class="mb-1"
+                      outlined
+                      large
+                      class="mb-1"
                       color="purple"
                       dark
                       rounded
@@ -49,9 +49,9 @@
                       Zbiórki pieniędzy
                     </v-btn>
                     <v-btn
-                    outlined
-                    large
-                    class="mb-1"
+                      outlined
+                      large
+                      class="mb-1"
                       color="red"
                       dark
                       rounded
@@ -68,17 +68,17 @@
               </v-col>
             </v-row>
             <center>
-            <v-btn
-                  class="align-self-end"
-                  fab
-                  color="blue"
-                  outlined
-                  aria-label="goTo"
-                  @click="$vuetify.goTo('#mapa')"
-                >
-                  <v-icon>mdi-chevron-double-down</v-icon>
-                </v-btn>
-                </center>
+              <v-btn
+                class="align-self-end"
+                fab
+                color="blue"
+                outlined
+                aria-label="goTo"
+                @click="$vuetify.goTo('#mapa')"
+              >
+                <v-icon>mdi-chevron-double-down</v-icon>
+              </v-btn>
+            </center>
           </v-container>
         </div>
       </v-theme-provider>
