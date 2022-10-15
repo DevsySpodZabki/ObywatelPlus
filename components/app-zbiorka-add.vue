@@ -59,17 +59,22 @@
 <script>
 export default {
   data: () => ({
-    fields:{
+    fields:{},
+    defaultFields:{
       description: '',
       name: '',
       goal: 0,
     },
     valid: false
   }),
+  mounted(){
+    this.fields = this.defaultFields
+  },
   methods: {
     submit () {
       if (this.valid) {
         this.$fire.database.ref("zbiorki").push(this.fields)
+        this.fields = this.defaultFields
         this.$emit("close")
       }
     }
