@@ -59,15 +59,16 @@
                 <div>{{ item.description }}</div>
                 <br>
                 <v-progress-linear
-                  color="blue"
-                  rounded
-                  height="25"
-                  stream
-                >
-                  <template #default="{ value }">
-                    <strong>Zebrano już {{ Math.ceil(value) }}% ({{ item.collected }} zł)</strong>
-                  </template>
-                </v-progress-linear>
+                    color="blue"
+                    rounded
+                    height="25"
+                    :value="collected_chart(item)"
+                    stream
+                  >
+                    <template #default="{ value }">
+                      <strong>Zebrano już {{ Math.ceil(Math.round(value * 100)) / 100 }}% ({{ item.collected }} zł)</strong>
+                    </template>
+                  </v-progress-linear>
               </v-card-text>
 
               <v-divider class="mx-4" />
@@ -113,6 +114,11 @@ export default {
     this.$fire.database.ref('zbiorki').on('value', (snapshot) => {
       this.zbiorki = snapshot.val()
     })
+  },
+  methods: {
+    collected_chart (item) {
+      return item.collected / item.goal * 100;
   }
+  },
 }
 </script>
