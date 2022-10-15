@@ -26,38 +26,38 @@
                   <br>
                   <br>
                   <v-container>
-                  <v-btn
-                    color="red"
-                    dark
-                    rounded
-                  >
-                    Załóż konto
-                  </v-btn>
-                  <v-btn
-                    color="blue"
-                    dark
-                    rounded
-                    @click="$vuetify.goTo('#mapa')"
-                  >
-                    Zaoferuj lub poproś o pomoc
-                  </v-btn>
-                  <v-btn
-                    color="blue"
-                    dark
-                    rounded
-                    @click="$vuetify.goTo('#zbiorki')"
-                  >
-                    Zbiórki pieniędzy
-                  </v-btn>
-                  <v-btn
-                    color="blue"
-                    dark
-                    rounded
-                    @click="$vuetify.goTo('#ideas')"
-                  >
-                    Inicjatywy społeczne
-                  </v-btn>
-                </v-container>
+                    <v-btn
+                      color="red"
+                      dark
+                      rounded
+                    >
+                      Załóż konto
+                    </v-btn>
+                    <v-btn
+                      color="blue"
+                      dark
+                      rounded
+                      @click="$vuetify.goTo('#mapa')"
+                    >
+                      Zaoferuj lub poproś o pomoc
+                    </v-btn>
+                    <v-btn
+                      color="blue"
+                      dark
+                      rounded
+                      @click="$vuetify.goTo('#zbiorki')"
+                    >
+                      Zbiórki pieniędzy
+                    </v-btn>
+                    <v-btn
+                      color="blue"
+                      dark
+                      rounded
+                      @click="$vuetify.goTo('#ideas')"
+                    >
+                      Inicjatywy społeczne
+                    </v-btn>
+                  </v-container>
                 </span>
                 <v-btn
                   class="align-self-end"
@@ -170,4 +170,3 @@ export default {
   })
 }
 </script>
-
