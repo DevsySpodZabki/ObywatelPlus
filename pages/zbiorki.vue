@@ -3,6 +3,7 @@
     <v-main>
       <v-container>
         <v-dialog
+        v-if="loggedIn"
           v-model="dialog"
           width="700"
         >
@@ -90,6 +91,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'ZbiorkiPage',
   data () {
@@ -99,6 +102,11 @@ export default {
       dialog: false,
       zbiorki: {}
     }
+  },
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
   },
   mounted () {
     this.$fire.database.ref('zbiorki').on('value', (snapshot) => {
