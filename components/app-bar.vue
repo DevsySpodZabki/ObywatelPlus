@@ -71,9 +71,24 @@
             </v-card-text>
           </v-card>
         </v-dialog>
-        <v-btn v-else text @click="logout">
-          Wyloguj się
-        </v-btn>
+        <v-menu offset-y v-else>
+          <template #activator="{ on, attrs }">
+            <v-btn
+              color="primary"
+              dark
+              v-bind="attrs"
+              v-on="on"
+              class="px-7"
+            >
+              Konto
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item @click="logout">
+              <v-list-item-title>Wyloguj się</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </v-toolbar-items>
     </v-app-bar>
   </div>

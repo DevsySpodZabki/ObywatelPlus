@@ -3,7 +3,7 @@
     <v-main>
       <v-container>
         <v-dialog
-        v-if="loggedIn"
+          v-if="loggedIn"
           v-model="dialog"
           width="700"
         >
