@@ -62,6 +62,8 @@
                     color="blue"
                     rounded
                     height="25"
+                    :value="collected_chart(item)"
+                    striped
                     stream
                   >
                     <template #default="{ value }">
