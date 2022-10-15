@@ -9,6 +9,11 @@
         v-model="valid"
       >
         <v-text-field
+          v-model="fields.user"
+          label="Imię i nazwisko"
+          readonly
+        />
+        <v-text-field
           v-model="fields.name"
           :rules="[
             () => !!fields.name || 'Wymagane',
@@ -58,15 +63,18 @@
 
 <script>
 export default {
-  data: () => ({
-    fields: {},
-    defaultFields: {
-      description: '',
-      name: '',
-      goal: 0
-    },
-    valid: false
-  }),
+  data(){
+    return {
+      fields: {},
+      defaultFields: {
+        user: this.$store.state.user.displayName,
+        description: '',
+        name: '',
+        goal: 0
+      },
+      valid: false
+    }
+  },
   mounted () {
     this.fields = this.defaultFields
   },
