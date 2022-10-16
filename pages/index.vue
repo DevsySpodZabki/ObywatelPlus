@@ -6,7 +6,7 @@
           src="./> -->
       <v-theme-provider dark>
         <div class="curved-background">
-          <v-container style="height: 100vh;margin-top:100px;">
+          <v-container style="height: 100vh">
             <v-row class="mt-15">
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
@@ -64,7 +64,7 @@
               </v-col>
 
               <v-col cols="12" md="6" class="d-flex">
-                <v-img max-height="500" max-width="500" class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
+                <v-img class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
               </v-col>
             </v-row>
             <center>
@@ -89,7 +89,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-flex">
-            <v-img class="mx-auto" min-height="400" max-height="500" max-width="500" src="lokalizacja1.svg" />
+            <v-img class="mx-auto" max-height="500" max-width="500" src="lokalizacja1.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto  mx-sm-15 mx-md-0">
