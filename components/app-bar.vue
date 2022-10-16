@@ -33,12 +33,12 @@
             Utwórz inicjatywę społeczną
           </span>
         </v-btn>
-        <v-btn text to="/pomoc">
+        <v-btn text to="/kontrola">
           <v-icon>
-            mdi-map-marker-radius
+            mdi-account-tie-hat
           </v-icon>
           <span class="hidden-md-and-down ml-2">
-            Znajdź lub ogłoś pomoc na mapie
+            Kontrola samorządów
           </span>
         </v-btn>
         <v-btn text to="/zbiorki">
