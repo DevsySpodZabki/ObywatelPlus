@@ -1,7 +1,7 @@
 <template>
   <div class="curved-background">
     <v-main>
-      <v-container>
+      <v-container style="margin-top:100px;">
         <v-dialog
           v-model="dialog"
           width="700"

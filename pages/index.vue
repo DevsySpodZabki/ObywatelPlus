@@ -6,7 +6,7 @@
           src="./> -->
       <v-theme-provider dark>
         <div class="curved-background">
-          <v-container style="height: 100vh;">
+          <v-container style="height: 100vh;margin-top:100px;">
             <v-row class="mt-15">
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
@@ -14,7 +14,7 @@
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
                     class="font-weight-black"
                   >
-                    Obywatel plus
+                    Obywatel Plus
                   </span>
                   <br>
                   <br>
@@ -63,8 +63,8 @@
                 </span>
               </v-col>
 
-              <v-col cols="12" md="6" class="my-auto">
-                <v-img src="wolontariusz.svg" />
+              <v-col cols="12" md="6" class="d-flex">
+                <v-img max-height="500" max-width="500" class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
               </v-col>
             </v-row>
             <center>
@@ -88,10 +88,10 @@
     <section id="mapa">
       <v-container>
         <v-row>
-          <v-col cols="12" md="6" class="my-auto">
-            <v-img src="lokalizacja1.svg" />
+          <v-col cols="12" lg="6" class="d-flex">
+            <v-img class="mx-auto" min-height="400" max-height="500" max-width="500" src="lokalizacja1.svg" />
           </v-col>
-          <v-col class="d-flex" cols="12" md="6">
+          <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
@@ -114,7 +114,10 @@
     <section id="zbiorki">
       <v-container>
         <v-row>
-          <v-col class="d-flex" cols="12" md="6">
+          <v-col cols="12" lg="6" class="d-flex" v-if="$vuetify.breakpoint.smAndDown">
+            <v-img class="mx-auto" max-height="500" max-width="500" src="zbiorki.svg" />
+          </v-col>
+          <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
@@ -131,8 +134,8 @@
               </span>
             </span>
           </v-col>
-          <v-col cols="12" md="6" class="my-auto">
-            <v-img src="zbiorki.svg" />
+          <v-col cols="12" lg="6" class="d-flex" v-if="$vuetify.breakpoint.mdAndUp">
+            <v-img class="mx-auto" max-height="500" max-width="500" src="zbiorki.svg" />
           </v-col>
         </v-row>
       </v-container>
@@ -140,10 +143,10 @@
     <section id="ideas">
       <v-container>
         <v-row>
-          <v-col cols="12" md="6" class="my-auto">
-            <v-img src="ideas.svg" />
+          <v-col cols="12" lg="6" class="d-flex">
+            <v-img class="mx-auto" max-height="500" max-width="500"  src="ideas.svg" />
           </v-col>
-          <v-col class="d-flex" cols="12" md="6">
+          <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
