@@ -146,7 +146,7 @@ export default {
       bg: 'transparent',
       dialog: false,
       el: '0',
-      name: this.$store.state.user.displayName
+      name: this.loggedIn ? this.$store.state.user.displayName : ''
     }
   },
   computed: {
@@ -154,7 +154,7 @@ export default {
       'loggedIn'
     ]),
     account () {
-      if (this.$store.state.user.displayName) {
+      if (this.$store.state.user && this.$store.state.user.displayName) {
         return this.$store.state.user.displayName.split(' ')[0]
       } else {
         return 'Konto'
