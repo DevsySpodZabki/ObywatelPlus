@@ -89,7 +89,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="6" class="my-auto">
-            <v-img src="lokalizacja1.svg" />
+            <v-img width="600" height="600" src="lokalizacja1.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" md="6">
             <span class="my-auto">
@@ -132,7 +132,7 @@
             </span>
           </v-col>
           <v-col cols="12" md="6" class="my-auto">
-            <v-img src="zbiorki.svg" />
+            <v-img  width="600" height="600"  src="zbiorki.svg" />
           </v-col>
         </v-row>
       </v-container>
@@ -141,7 +141,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="6" class="my-auto">
-            <v-img src="ideas.svg" />
+            <v-img  width="600" height="600"  src="ideas.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" md="6">
             <span class="my-auto">
