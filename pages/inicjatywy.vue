@@ -45,10 +45,9 @@
                 <div class="text-subtitle-1">
                   {{ item.author }}
                 </div>
-
-                <div>Oddanych głosów {{ item.collected }}</div>
+                <div>Opis: {{ item.opis }}</div>
                 <br>
-                <div>{{ item.description }}</div>
+                <div>Zebranych głosów: {{ item.collected }}</div>
               </v-card-text>
 
               <v-divider class="mx-4" />
@@ -60,7 +59,7 @@
                     color="deep-purple lighten-2"
                     text
                   >
-                    Przekaż głos
+                    Przekaż głos na inicjatywę
                   </v-btn>
                 </v-container>
               </v-card-actions>
