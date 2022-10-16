@@ -25,6 +25,11 @@
           required
         />
         <v-text-field
+          v-model="fields.banner"
+          label="Adres URL do baneru inicjatywy"
+          required
+        />
+        <v-text-field
           v-model="fields.opis"
           :rules="[
             () => !!fields.opis || 'Wymagane',
@@ -82,6 +87,7 @@ export default {
     return {
       fields: {},
       defaultFields: {
+        banner: '',
         name: '',
         opis: '',
         gmina: '',

@@ -44,7 +44,7 @@
 
               <v-img
                 height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                :src="item.banner ? item.banner : 'https://cdn.vuetifyjs.com/images/cards/cooking.png'"
               />
 
               <v-card-title>{{ item.name }}</v-card-title>
@@ -59,16 +59,16 @@
                 <div>{{ item.description }}</div>
                 <br>
                 <v-progress-linear
-                    color="blue"
-                    rounded
-                    height="25"
-                    :value="collected_chart(item)"
-                    stream
-                  >
-                    <template #default="{ value }">
-                      <strong>Zebrano już {{ Math.ceil(Math.round(value * 100)) / 100 }}% ({{ item.collected }} zł)</strong>
-                    </template>
-                  </v-progress-linear>
+                  color="blue"
+                  rounded
+                  height="25"
+                  :value="collected_chart(item)"
+                  stream
+                >
+                  <template #default="{ value }">
+                    <strong>Zebrano już {{ Math.ceil(Math.round(value * 100)) / 100 }}% ({{ item.collected }} zł)</strong>
+                  </template>
+                </v-progress-linear>
               </v-card-text>
 
               <v-divider class="mx-4" />
@@ -117,8 +117,8 @@ export default {
   },
   methods: {
     collected_chart (item) {
-      return item.collected / item.goal * 100;
+      return item.collected / item.goal * 100
+    }
   }
-  },
 }
 </script>

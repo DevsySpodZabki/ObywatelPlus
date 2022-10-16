@@ -36,7 +36,7 @@
 
               <v-img
                 height="250"
-                src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                :src="item.banner ? item.banner : 'https://cdn.vuetifyjs.com/images/cards/cooking.png'"
               />
 
               <v-card-title>{{ item.name }}</v-card-title>

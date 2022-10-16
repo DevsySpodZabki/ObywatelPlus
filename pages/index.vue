@@ -6,7 +6,7 @@
           src="./> -->
       <v-theme-provider dark>
         <div class="curved-background">
-          <v-container style="height: 90vh;">
+          <v-container style="height: 100vh;">
             <v-row class="mt-15">
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">

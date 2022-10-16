@@ -25,6 +25,11 @@
           required
         />
         <v-text-field
+          v-model="fields.banner"
+          label="Adres URL do baneru zbiórki"
+          required
+        />
+        <v-text-field
           v-model="fields.description"
           :rules="[
             () => !!fields.description || 'Wymagane',
@@ -70,7 +75,8 @@ export default {
         user: this.$store.state.user.displayName,
         description: '',
         name: '',
-        goal: 0
+        goal: 0,
+        banner: ''
       },
       valid: false
     }
