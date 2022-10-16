@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar fixed light app>
+    <v-app-bar fixed :color="bg" :elevation="el">
       <nuxt-link to="/" style="text-decoration: none; color: inherit;">
         <v-toolbar-title class="mr-3 ml-3">
           Obywatel Plus
@@ -143,7 +143,9 @@ export default {
 
   data () {
     return {
+      bg: 'transparent',
       dialog: false,
+      el: '0',
       name: this.$store.state.user.displayName
     }
   },
@@ -163,6 +165,9 @@ export default {
     if (this.loggedIn && !this.$store.state.user.displayName) {
       this.dialog = true
     }
+    window.onscroll = () => {
+      this.changeColor()
+    }
   },
   methods: {
     toggleDarkTheme () {
@@ -178,6 +183,18 @@ export default {
       this.$fire.auth.currentUser.updateProfile({ displayName: this.name }).then(() => {
         document.location.reload()
       })
+    },
+    changeColor () {
+      if (
+        document.body.scrollTop > 0 ||
+        document.documentElement.scrollTop > 0
+      ) {
+        this.bg = ''
+        this.el = '5'
+      } else {
+        this.bg = 'transparent'
+        this.el = '0'
+      }
     }
   }
 }

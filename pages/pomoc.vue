@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    Pomoc
+    
   </v-container>
 </template>
 <script>
