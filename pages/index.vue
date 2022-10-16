@@ -10,22 +10,22 @@
             <v-row class="mt-15">
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
-                  <span
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
-                    class="font-weight-black"
+                  <div
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-4': 'display-4']"
+                    class="font-weight-black mx-sm-15 mx-md-0"
                   >
                     Obywatel Plus
-                  </span>
+                  </div>
                   <br>
                   <br>
-                  <span
-                    class="headline"
+                  <div
+                    class="headline mx-sm-15 mx-md-0"
                   >
                     Projekt ten ma na celu skupić wiele rzeczy w jednym miejscu, przydatnych dla obywateli naszego kraju. W tym serwisie możesz zaoferować lub poprosić o pomoc, jest również możliwość tworzenia zbiórek pieniędzy.
-                  </span>
+                  </div>
                   <br>
                   <br>
-                  <v-container>
+                  <div class="mx-sm-15 mx-md-0">
                     <v-btn
                       outlined
                       large
@@ -59,7 +59,7 @@
                     >
                       Inicjatywy społeczne
                     </v-btn>
-                  </v-container>
+                  </div>
                 </span>
               </v-col>
 
@@ -92,7 +92,7 @@
             <v-img class="mx-auto" min-height="400" max-height="500" max-width="500" src="lokalizacja1.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
-            <span class="my-auto">
+            <span class="my-auto  mx-sm-15 mx-md-0">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
@@ -118,7 +118,7 @@
             <v-img class="mx-auto" max-height="500" max-width="500" src="zbiorki.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
-            <span class="my-auto">
+            <span class="my-auto  mx-sm-15 mx-md-0">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
@@ -140,14 +140,14 @@
         </v-row>
       </v-container>
     </section>
-    <section id="ideas">
+    <section id="ideas" class="mb-15">
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-flex">
             <v-img class="mx-auto" max-height="500" max-width="500"  src="ideas.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
-            <span class="my-auto">
+            <span class="my-auto  mx-sm-15 mx-md-0">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
