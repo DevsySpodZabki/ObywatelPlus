@@ -18,7 +18,7 @@
             </v-btn>
           </template>
 
-          <AppInicjatywaAdd @close="dialog=false" />
+          <AppKontrolaAdd @close="dialog=false" />
         </v-dialog>
         <v-row>
           <v-col v-for="item in posty" :key="item.name">
@@ -34,7 +34,14 @@
                 />
               </template>
 
-              <v-card-title>{{ item.name }}</v-card-title>
+              <v-img
+                height="250"
+                :src="item.banner ? item.banner : 'https://cdn.vuetifyjs.com/images/cards/cooking.png'"
+              >
+              <v-card-title><div class="text-h3">{{ item.name }}</div></v-card-title>
+            </v-img>
+
+            <v-card-title>{{ item.name }}</v-card-title>
 
               <v-card-text>
                 <div class="text-subtitle-1">
@@ -44,7 +51,7 @@
                   Komentarze: {{ item.comments }}
                 </div>
                 <br>
-                <div>{{ item.description }}</div>
+                <div>{{ item.opis }}</div>
               </v-card-text>
 
               <v-divider class="mx-4" />
@@ -69,20 +76,22 @@
 </template>
 
 <script>
+import AppKontrolaAdd from '../components/app-kontrola-add.vue';
 export default {
-  name: 'KontrolaPage',
-  data () {
-    return {
-      posty: {},
-      loading: false,
-      selection: 1,
-      dialog: false
-    }
-  },
-  mounted () {
-    this.$fire.database.ref('posty').on('value', (snapshot) => {
-      this.posty= snapshot.val()
-    })
-  }
+    name: "KontrolaPage",
+    data() {
+        return {
+            posty: {},
+            loading: false,
+            selection: 1,
+            dialog: false
+        };
+    },
+    mounted() {
+        this.$fire.database.ref("posty").on("value", (snapshot) => {
+            this.posty = snapshot.val();
+        });
+    },
+    components: { AppKontrolaAdd }
 }
 </script>
