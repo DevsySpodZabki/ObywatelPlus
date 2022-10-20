@@ -1,9 +1,6 @@
 <template>
   <v-app>
     <v-row no-gutters>
-      <!-- <v-img
-          :min-height="'calc(80vh - ' + $vuetify.application.top + 'px)'"
-          src="./> -->
       <v-theme-provider dark>
         <div class="curved-background">
           <v-container style="height: 100vh">
@@ -82,7 +79,6 @@
           </v-container>
         </div>
       </v-theme-provider>
-      <!-- </v-img> -->
     </v-row>
 
     <section id="kontrola">

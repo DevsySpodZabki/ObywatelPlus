@@ -1,7 +1,7 @@
 <template>
     <v-card ref="form">
       <v-card-title>
-        Dodaj nową inicjatywę
+        Dodaj nowy post dotyczący kontroli samorządu
       </v-card-title>
       <v-card-text>
         <v-form
@@ -33,11 +33,11 @@
             v-model="fields.opis"
             :rules="[
               () => !!fields.opis || 'Wymagane',
-              () => !!fields.opis && fields.opis.length <= 250 || 'Treść posta nie może być dłuższa niż 250 znaków'
+              () => !!fields.opis && fields.opis.length <= 450 || 'Treść posta nie może być dłuższa niż 450 znaków'
             ]"
             label="Treść posta"
             placeholder="Treść"
-            counter="250"
+            counter="450"
             required
           />
         </v-form>

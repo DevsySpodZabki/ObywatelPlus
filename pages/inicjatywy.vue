@@ -43,9 +43,11 @@
 
               <v-card-text>
                 <div class="text-subtitle-1">
-                  {{ item.author }}
+                  Opis: {{ item.opis }}
+                  <br>
+                  Inicjatywa utworzona przez: {{ item.user }}<br>
+                  Miasto: {{ item.city }} (ZIP: {{ item.zip }}), Gmina: {{ item.gmina }}
                 </div>
-                <div>Opis: {{ item.opis }}</div>
                 <br>
                 <div>Zebranych głosów: {{ item.collected }}</div>
               </v-card-text>
@@ -86,6 +88,6 @@ export default {
     this.$fire.database.ref('inicjatywy').on('value', (snapshot) => {
       this.inicjatywy = snapshot.val()
     })
-  }
+  },
 }
 </script>
