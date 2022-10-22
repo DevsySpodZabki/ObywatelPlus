@@ -23,7 +23,7 @@
           </v-dialog>
           <v-row>
             <v-col
-              v-for="item in posty"
+            v-for="(item,index) in posty"
               :key="item.name"
               cols="12"
               md="6"
@@ -73,6 +73,7 @@
                     <v-btn
                       block
                       color="deep-purple lighten-2"
+                      :to="`/kontrola/${index}`"
                       text
                     >
                       Zobacz cały post
