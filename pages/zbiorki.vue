@@ -51,10 +51,9 @@
 
               <v-card-text>
                 <div class="text-subtitle-1">
-                  {{ item.user }}
+                  Zbiórka utworzona przez: {{ item.user }}<br>
+                  Cel zbiórki: {{ item.goal }} zł
                 </div>
-
-                <div>Cel zbiórki: {{ item.goal }} zł</div>
                 <br>
                 <div>{{ item.description }}</div>
                 <br>

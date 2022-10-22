@@ -14,14 +14,14 @@
               dark
               v-on="on"
             >
-              Utwórz inicjatywę
+              Utwórz post
             </v-btn>
           </template>
 
-          <AppInicjatywaAdd @close="dialog=false" />
+          <AppKontrolaAdd @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="item in inicjatywy" :key="item.name">
+          <v-col v-for="item in posty" :key="item.name">
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -37,19 +37,21 @@
               <v-img
                 height="250"
                 :src="item.banner ? item.banner : 'https://cdn.vuetifyjs.com/images/cards/cooking.png'"
-              />
+              >
+              <v-card-title><div class="text-h3">{{ item.name }}</div></v-card-title>
+            </v-img>
 
-              <v-card-title>{{ item.name }}</v-card-title>
+            <v-card-title>{{ item.name }}</v-card-title>
 
               <v-card-text>
                 <div class="text-subtitle-1">
-                  Opis: {{ item.opis }}
-                  <br>
-                  Inicjatywa utworzona przez: {{ item.user }}<br>
-                  Miasto: {{ item.city }} (ZIP: {{ item.zip }}), Gmina: {{ item.gmina }}
+                  Post utworzony przez: {{ item.user }}
+                </div>
+                <div class="text-subtitle-1">
+                  Komentarze: {{ item.comments }}
                 </div>
                 <br>
-                <div>Zebranych głosów: {{ item.collected }}</div>
+                <div>{{ item.opis }}</div>
               </v-card-text>
 
               <v-divider class="mx-4" />
@@ -61,7 +63,7 @@
                     color="deep-purple lighten-2"
                     text
                   >
-                    Przekaż głos na inicjatywę
+                    Zobacz cały post
                   </v-btn>
                 </v-container>
               </v-card-actions>
@@ -74,20 +76,22 @@
 </template>
 
 <script>
+import AppKontrolaAdd from '../components/app-kontrola-add.vue';
 export default {
-  name: 'InicjatywyPage',
-  data () {
-    return {
-      inicjatywy: {},
-      loading: false,
-      selection: 1,
-      dialog: false
-    }
-  },
-  mounted () {
-    this.$fire.database.ref('inicjatywy').on('value', (snapshot) => {
-      this.inicjatywy = snapshot.val()
-    })
-  },
+    name: "KontrolaPage",
+    data() {
+        return {
+            posty: {},
+            loading: false,
+            selection: 1,
+            dialog: false
+        };
+    },
+    mounted() {
+        this.$fire.database.ref("posty").on("value", (snapshot) => {
+            this.posty = snapshot.val();
+        });
+    },
+    components: { AppKontrolaAdd }
 }
 </script>

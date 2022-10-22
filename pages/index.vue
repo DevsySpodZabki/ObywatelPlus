@@ -1,12 +1,9 @@
 <template>
   <v-app>
     <v-row no-gutters>
-      <!-- <v-img
-          :min-height="'calc(80vh - ' + $vuetify.application.top + 'px)'"
-          src="./> -->
       <v-theme-provider dark>
         <div class="curved-background">
-          <v-container style="height: 100vh;margin-top:100px;">
+          <v-container style="height: 100vh">
             <v-row class="mt-15">
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
@@ -33,9 +30,9 @@
                       color="blue"
                       dark
                       rounded
-                      @click="$vuetify.goTo('#mapa')"
+                      @click="$vuetify.goTo('#kontrola')"
                     >
-                      Zaoferuj lub poproś o pomoc
+                      Onbywatelska kontrola samorządów
                     </v-btn>
                     <v-btn
                       outlined
@@ -64,7 +61,7 @@
               </v-col>
 
               <v-col cols="12" md="6" class="d-flex">
-                <v-img max-height="500" max-width="500" class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
+                <v-img class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
               </v-col>
             </v-row>
             <center>
@@ -74,7 +71,7 @@
                 color="blue"
                 outlined
                 aria-label="goTo"
-                @click="$vuetify.goTo('#mapa')"
+                @click="$vuetify.goTo('#kontrola')"
               >
                 <v-icon>mdi-chevron-double-down</v-icon>
               </v-btn>
@@ -82,29 +79,28 @@
           </v-container>
         </div>
       </v-theme-provider>
-      <!-- </v-img> -->
     </v-row>
 
-    <section id="mapa">
+    <section id="kontrola">
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-flex">
-            <v-img class="mx-auto" min-height="400" max-height="500" max-width="500" src="lokalizacja1.svg" />
+            <v-img class="mx-auto" src="kontrola.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
-            <span class="my-auto">
+            <span class="my-auto  mx-sm-15 mx-md-0">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
               >
-                Pomaganie z interaktywną mapą
+                Obywatelska kontrola samorządów
               </span>
               <br>
               <br>
               <span
                 class="headline"
               >
-                Stwórz obszar lub punkt lokalizacji, w którym zaoferujesz lub poprosisz innych o pomoc. Możesz skontaktować się z innymi za pomocą wbudowanego czatu.
+                Weź udział w dyskusji, kontroluj samorządy jako obywatel. Umieszczaj swoje przemyślenia na temat ruchów samorządów.
               </span>
             </span>
           </v-col>
@@ -118,7 +114,7 @@
             <v-img class="mx-auto" max-height="500" max-width="500" src="zbiorki.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
-            <span class="my-auto">
+            <span class="my-auto  mx-sm-15 mx-md-0">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
@@ -134,8 +130,8 @@
               </span>
             </span>
           </v-col>
-          <v-col cols="12" lg="6" class="d-none d-lg-flex">
-            <v-img class="mx-auto" max-height="500" max-width="500" src="zbiorki.svg" />
+          <v-col cols="12" lg="6" class="d-flex" v-if="$vuetify.breakpoint.mdAndUp">
+            <v-img class="mx-auto" src="zbiorki.svg" />
           </v-col>
         </v-row>
       </v-container>
@@ -144,10 +140,10 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-flex">
-            <v-img class="mx-auto" max-height="500" max-width="500"  src="ideas.svg" />
+            <v-img class="mx-auto"  src="ideas.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
-            <span class="my-auto">
+            <span class="my-auto  mx-sm-15 mx-md-0">
               <span
                 :class="[$vuetify.breakpoint.smAndDown ? 'display-2': 'display-2']"
                 class="font-weight-black"
