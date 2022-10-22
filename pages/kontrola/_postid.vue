@@ -11,7 +11,7 @@
                     Post utworzony przez:
                   </v-list-item-title>
                   <v-list-item-title>
-                    Wiktor Józwiak
+                    {{ post.user }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -47,7 +47,9 @@
             <v-card color="transparent">
               <v-card-title class="display-1">Komentarze</v-card-title>
 
-              <v-card-text>Test</v-card-text>
+              <v-card-text> 
+                {{ post.comments }}
+              </v-card-text>
               <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
               <v-card-text>
                 <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
@@ -70,7 +72,7 @@ export default {
   mounted() {
     this.$fire.database.ref('posty').on('value', (snapshot) => {
       this.posty = snapshot.val()
-      console.log(snapshot.val())
+      this.post = this.posty[this.$route.params.postid]
     })
   },
   methods: {
@@ -85,6 +87,10 @@ export default {
           this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/${uid}`).push(comment)
         }
       }
+    },
+    async getUser(uid) {
+      let user = await this.$fire.getUser.auth.getUser(uid)
+      return user
     },
     comments(item) {
       if (item.comments) {
@@ -101,8 +107,13 @@ export default {
   },
   data() {
     return {
-      commentFieldText: ""
+      commentFieldText: "",
+      post: {}
     }
+  },
+  async mounted() {
+    let user = await getUser("lPaneIX1qVUH3ibPxHsLBsnhOjc2")
+    console.log(user)
   }
 }
 </script>
