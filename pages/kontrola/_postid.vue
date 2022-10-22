@@ -52,10 +52,10 @@
               <v-card-title class="display-1">Komentarze</v-card-title>
 
               <v-card-text>Test</v-card-text>
-              <v-form>
-              <v-card-text @submit="comment(posty, commentFieldText)">
+              <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
+              <v-card-text>
                 <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
-                <v-btn action="javascript();" type="submit">aaaa</v-btn>
+                <v-btn method="get" type="submit">Wstaw</v-btn>
               </v-card-text>
             </v-form>
             </v-card>
