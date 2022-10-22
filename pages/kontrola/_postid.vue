@@ -11,7 +11,7 @@
                     Post utworzony przez:
                   </v-list-item-title>
                   <v-list-item-title>
-                    Wiktor Józwiak
+                  {{ post.user }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -30,14 +30,10 @@
 
           <v-col>
             <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
-              <v-card-title class="display-2">Tytuł</v-card-title>
+              <v-card-title class="display-2">{{ post.name }}</v-card-title>
               <v-card-subtitle></v-card-subtitle>
-              <v-card-text class="display-1"></v-card-text>
+              <v-card-text class="display-1">{{ post.opis }}</v-card-text>
               <v-card-actions>
-                <v-btn outlined large class="mb-1" color="purple" dark rounded
-                  @click="comment(posty, commentFieldText)">
-                  Skomentuj
-                </v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -47,7 +43,7 @@
             <v-card color="transparent">
               <v-card-title class="display-1">Komentarze</v-card-title>
 
-              <v-card-text>Test</v-card-text>
+              <v-card-text> {{ post.comments }} </v-card-text>
               <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
               <v-card-text>
                 <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
@@ -70,7 +66,7 @@ export default {
   mounted() {
     this.$fire.database.ref('posty').on('value', (snapshot) => {
       this.posty = snapshot.val()
-      console.log(snapshot.val())
+      this.post = this.posty[this.$route.params.postid]
     })
   },
   methods: {
@@ -101,7 +97,8 @@ export default {
   },
   data() {
     return {
-      commentFieldText: ""
+      commentFieldText: "",
+      post: {}
     }
   }
 }
