@@ -21,7 +21,7 @@
           <AppInicjatywaAdd @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="(item,index) in inicjatywy" :key="item.name">
+          <v-col v-for="(item,index) in inicjatywy" :key="item.name" cols="12" md="6">
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -63,7 +63,12 @@
                     @click="zaglosuj(item,index)"
                     :disabled="!loggedIn"
                   >
-                    Przekaż głos na inicjatywę
+                    <template v-if="item.collected && item.collected[$store.state.user.uid]">
+                      Zrezygnuj z głosu
+                    </template>
+                    <template v-else>
+                      Przekaż głos na inicjatywę
+                    </template>
                   </v-btn>
                 </v-container>
               </v-card-actions>
