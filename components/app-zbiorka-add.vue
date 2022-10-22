@@ -77,7 +77,7 @@ export default {
         name: '',
         goal: 0,
         banner: '',
-        owner: owner: this.$store.state.user.uid
+        owner: this.$store.state.user.uid
       },
       valid: false
     }
