@@ -62,7 +62,7 @@
               Zaloguj się
             </v-btn>
           </template>
-          <v-card class="rounded-card pa-3" outlined >
+          <v-card class="rounded-card pa-3" outlined>
             <v-card-title class="text-h4 mb-3">
               Zaloguj się
             </v-card-title>

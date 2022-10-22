@@ -111,7 +111,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-lg-none d-flex">
-            <v-img class="mx-auto" max-height="500" max-width="500" src="zbiorki.svg" />
+            <v-img class="mx-auto" src="zbiorki.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto  mx-sm-15 mx-md-0">
@@ -130,7 +130,7 @@
               </span>
             </span>
           </v-col>
-          <v-col cols="12" lg="6" class="d-flex" v-if="$vuetify.breakpoint.mdAndUp">
+          <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" lg="6" class="d-flex">
             <v-img class="mx-auto" src="zbiorki.svg" />
           </v-col>
         </v-row>
@@ -140,7 +140,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-flex">
-            <v-img class="mx-auto"  src="ideas.svg" />
+            <v-img class="mx-auto" src="ideas.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto  mx-sm-15 mx-md-0">
