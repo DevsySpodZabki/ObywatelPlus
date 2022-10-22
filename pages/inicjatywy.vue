@@ -60,6 +60,7 @@
                     block
                     color="deep-purple lighten-2"
                     text
+                    @click="zaglosuj(item)"
                   >
                     Przekaż głos na inicjatywę
                   </v-btn>
@@ -89,5 +90,10 @@ export default {
       this.inicjatywy = snapshot.val()
     })
   },
+  methods:{
+    zaglosuj(item){
+      // this.$fire.database.ref('ini')
+    }
+  }
 }
 </script>
