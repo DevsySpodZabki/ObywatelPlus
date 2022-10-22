@@ -8,6 +8,7 @@
         >
           <template #activator="{ on}">
             <v-btn
+              v-if="loggedIn"
               large
               class="rounded-lg"
               color="primary"
@@ -87,10 +88,10 @@
 </template>
 
 <script>
-import AppKontrolaAdd from '../components/app-kontrola-add.vue'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'KontrolaPage',
-  components: { AppKontrolaAdd },
   data () {
     return {
       posty: {},
@@ -98,6 +99,11 @@ export default {
       selection: 1,
       dialog: false
     }
+  },
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
   },
   mounted () {
     this.$fire.database.ref('posty').on('value', (snapshot) => {
