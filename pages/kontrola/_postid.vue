@@ -32,11 +32,7 @@
             <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
               <v-card-title class="display-2">Tytuł</v-card-title>
               <v-card-subtitle></v-card-subtitle>
-              <v-card-text class="display-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</v-card-text>
+              <v-card-text class="display-1"></v-card-text>
               <v-card-actions>
                 <v-btn outlined large class="mb-1" color="purple" dark rounded
                   @click="comment(posty, commentFieldText)">
@@ -52,10 +48,10 @@
               <v-card-title class="display-1">Komentarze</v-card-title>
 
               <v-card-text>Test</v-card-text>
-              <v-form>
-              <v-card-text @submit="comment(posty, commentFieldText)">
+              <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
+              <v-card-text>
                 <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
-                <v-btn action="javascript();" type="submit">aaaa</v-btn>
+                <v-btn method="get" type="submit">Wstaw</v-btn>
               </v-card-text>
             </v-form>
             </v-card>
@@ -92,7 +88,7 @@ export default {
     },
     comments(item) {
       if (item.comments) {
-        return Object.keys(item.collected).length
+        return Object.keys(item.comments).length
       } else {
         return 0
       }
