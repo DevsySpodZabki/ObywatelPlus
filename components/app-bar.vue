@@ -125,13 +125,6 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
-            color="secondary"
-            text
-            @click="dialog=false"
-          >
-            Anuluj
-          </v-btn>
-          <v-btn
             color="primary"
             text
             @click="next"
@@ -156,7 +149,14 @@ export default {
       bg: 'transparent',
       dialog: false,
       el: '0',
-      name: this.loggedIn ? this.$store.state.user.displayName : ''
+      name: ""
+    }
+  },
+  watch:{
+    loggedIn(){
+      if(this.loggedIn){
+        this.name = this.$store.state.user.displayName
+      }
     }
   },
   computed: {
@@ -174,6 +174,9 @@ export default {
   mounted () {
     if (this.loggedIn && !this.$store.state.user.displayName) {
       this.dialog = true
+    }
+    if(this.loggedIn && this.$store.state.user.displayName){
+      this.name = this.$store.state.user.displayName
     }
     window.onscroll = () => {
       this.changeColor()
