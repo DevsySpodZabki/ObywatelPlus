@@ -50,6 +50,7 @@
           </span>
         </v-btn>
         <v-dialog
+          v-model="dialogSignin"
           v-if="!loggedIn"
           width="600"
         >
@@ -62,9 +63,17 @@
               Zaloguj się
             </v-btn>
           </template>
-          <v-card class="rounded-card pa-3" outlined>
+          <v-card class="rounded-lg" outlined>
             <v-card-title class="text-h4 mb-3">
               Zaloguj się
+              <v-spacer/>
+              <v-btn
+                icon
+                dark
+                @click="dialogSignin=false"
+              >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
             </v-card-title>
             <v-card-text>
               <App-signin />
@@ -116,13 +125,6 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
-            color="secondary"
-            text
-            @click="dialog=false"
-          >
-            Anuluj
-          </v-btn>
-          <v-btn
             color="primary"
             text
             @click="next"
@@ -143,10 +145,18 @@ export default {
 
   data () {
     return {
+      dialogSignin: false,
       bg: 'transparent',
       dialog: false,
       el: '0',
-      name: this.loggedIn ? this.$store.state.user.displayName : ''
+      name: ""
+    }
+  },
+  watch:{
+    loggedIn(){
+      if(this.loggedIn){
+        this.name = this.$store.state.user.displayName
+      }
     }
   },
   computed: {
@@ -164,6 +174,9 @@ export default {
   mounted () {
     if (this.loggedIn && !this.$store.state.user.displayName) {
       this.dialog = true
+    }
+    if(this.loggedIn && this.$store.state.user.displayName){
+      this.name = this.$store.state.user.displayName
     }
     window.onscroll = () => {
       this.changeColor()
