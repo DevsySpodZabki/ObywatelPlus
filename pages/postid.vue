@@ -1,43 +1,78 @@
 <template>
-    <div class="curved-background">
-      <v-main>
-        <v-container style="margin-top:100px;">
+  <div class="curved-background">
+    <v-main>
+      <v-container style="margin-top:100px;">
+        <v-row>
+          <v-col cols="2">
+              <v-list color="rgb(0, 0, 0, 0.1)">
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      Post utworzony przez:
+                    </v-list-item-title>
+                    <v-list-item-title>
+                      Wiktor Józwiak
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+
+                <v-divider class="my-2"></v-divider>
+
+                <v-list-item
+                  link
+                  color="grey lighten-4"
+                >
+                  <v-list-item-content>
+                    <v-list-item-title>
+                      Wróć do strony z kontrolą
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+          </v-col>
+
+          <v-col>
             <v-card
-            :loading="loading"
-            class="mx-auto"
-            color="rgb(0, 0, 0, 0.1)"
-            rounded
-            >   
-                <v-card-title class="headline mb-1">Cześć</v-card-title>
-                <v-card-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin sagittis nisl rhoncus mattis rhoncus urna. At risus viverra adipiscing at in tellus. Ac turpis egestas sed tempus urna et pharetra pharetra. Eget nunc lobortis mattis aliquam faucibus. Sed nisi lacus sed viverra tellus in. Dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Ac tortor dignissim convallis aenean et tortor. Massa massa ultricies mi quis hendrerit dolor magna eget est. Ut faucibus pulvinar elementum integer enim neque. Tortor condimentum lacinia quis vel eros donec ac.</v-card-subtitle>
-                <v-card-text>Post utworzony przez: Imie nazwisko</v-card-text>
+              rounded="lg"
+              color="rgb(0, 0, 0, 0.1)"
+            >
+            <v-card-title class="display-2" >Tytuł</v-card-title>
+            <v-card-subtitle></v-card-subtitle>
+            <v-card-text class="display-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</v-card-text>
+            <v-card-actions>
+              <v-btn
+                      outlined
+                      large
+                      class="mb-1"
+                      color="purple"
+                      dark
+                      rounded
+                      @click="$vuetify.goTo('#komentarze')"
+                    >
+                      Skomentuj
+                    </v-btn>
+            </v-card-actions>
             </v-card>
-        </v-container>
-      </v-main>
+          </v-col>
+        </v-row>
+        <selection id="komentarze">
+        <v-row>
+        <v-col>
+          <v-card color="transparent">
+            <v-card-title class="display-1">Komentarze</v-card-title>
+
+            <v-card-text>Test</v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </selection>
+      </v-container>
+    </v-main>
     </div>
-  </template>
+</template>
   
-  <script>
+<script>
   export default {
-    name: 'PostID',
-    data: () => ({
-      items: [
-        {
-          text: 'Strona główna',
-          disabled: false,
-          href: '/',
-        },
-        {
-          text: 'Kontrola samorządów',
-          disabled: false,
-          href: 'kontrola',
-        },
-        {
-          text: 'Ten post',
-          disabled: true,
-          href: '',
-        },
-      ],
-    }),
-}
+    name: 'PostID'
+  }
 </script>
