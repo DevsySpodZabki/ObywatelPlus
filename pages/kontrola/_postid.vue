@@ -32,7 +32,7 @@
             <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
               <v-card-title class="display-2">Tytuł</v-card-title>
               <v-card-subtitle></v-card-subtitle>
-              <v-card-text class="display-1">{{ index }}</v-card-text>
+              <v-card-text class="display-1"></v-card-text>
               <v-card-actions>
                 <v-btn outlined large class="mb-1" color="purple" dark rounded
                   @click="comment(posty, commentFieldText)">
@@ -88,7 +88,7 @@ export default {
     },
     comments(item) {
       if (item.comments) {
-        return Object.keys(item.collected).length
+        return Object.keys(item.comments).length
       } else {
         return 0
       }
