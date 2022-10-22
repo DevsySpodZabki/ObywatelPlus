@@ -3,8 +3,32 @@
     <v-main>
       <v-container style="margin-top:100px;">
         <v-row>
+          <v-col>
+            <v-card rounded="lg">
+              <v-card-title class="display-2">{{ post.name }}</v-card-title>
+              <v-card-subtitle></v-card-subtitle>
+              <v-card-text class="display-1">{{ post.opis }}</v-card-text>
+              <v-card-actions>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-card>
+              <v-card-title class="display-1">Komentarze</v-card-title>
+
+              <v-card-text> {{ post.comments }} </v-card-text>
+              <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
+              <v-card-text>
+                <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
+                <v-btn method="get" type="submit">Wstaw</v-btn>
+              </v-card-text>
+            </v-form>
+            </v-card>
+          </v-col>
           <v-col cols="2">
-            <v-list color="rgb(0, 0, 0, 0.1)">
+            <v-list>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -26,31 +50,6 @@
                 </v-list-item-content>
               </v-list-item>
             </v-list>
-          </v-col>
-
-          <v-col>
-            <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
-              <v-card-title class="display-2">{{ post.name }}</v-card-title>
-              <v-card-subtitle></v-card-subtitle>
-              <v-card-text class="display-1">{{ post.opis }}</v-card-text>
-              <v-card-actions>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-card color="transparent">
-              <v-card-title class="display-1">Komentarze</v-card-title>
-
-              <v-card-text> {{ post.comments }} </v-card-text>
-              <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
-              <v-card-text>
-                <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
-                <v-btn method="get" type="submit">Wstaw</v-btn>
-              </v-card-text>
-            </v-form>
-            </v-card>
           </v-col>
         </v-row>
       </v-container>
