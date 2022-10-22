@@ -47,7 +47,7 @@
                       color="purple"
                       dark
                       rounded
-                      @click="$vuetify.goTo('#komentarze')"
+                      @click="comment(item,index)"
                     >
                       Skomentuj
                     </v-btn>
@@ -62,6 +62,19 @@
             <v-card-title class="display-1">Komentarze</v-card-title>
 
             <v-card-text>Test</v-card-text>
+            <v-card-text>
+              <v-text-field
+          v-model="komentarz"
+          :counter="100"
+          label="Napisz komentarz"
+          @keydown="comment(item,index)"
+        ></v-text-field>
+        <v-text-field>
+          <v-btn
+          @click="comment(item,index)"
+        >ZSSSS</v-btn>
+        </v-text-field>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -73,6 +86,30 @@
   
 <script>
   export default {
-    name: 'PostID'
+    name: 'PostID',
+    mounted () {
+    this.$fire.database.ref('posty').on('value', (snapshot) => {
+      this.posty = snapshot.val()
+    })
+  },
+  methods: {
+    comment (item, index) {
+      if (this.loggedIn) {
+        const { uid } = this.$store.state.user
+        if (item.comments && item.comments[uid]) {
+          this.$fire.database.ref(`posty/${index}/comments/${uid}`).set("komentarz")
+        } else {
+          this.$fire.database.ref(`posty/${index}/comments/${uid}`).remove()
+        }
+      }
+    },
+    comments (item) {
+      if (item.comments) {
+        return Object.keys(item.collected).length
+      } else {
+        return 0
+      }
+    }
+  }
   }
 </script>
