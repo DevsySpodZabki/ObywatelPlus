@@ -8,6 +8,7 @@
         >
           <template #activator="{ on}">
             <v-btn
+              v-if="loggedIn"
               large
               class="rounded-lg"
               color="primary"
@@ -21,7 +22,14 @@
           <AppKontrolaAdd @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="item in posty" :key="item.name">
+          <v-col
+            v-for="item in posty"
+            :key="item.name"
+            cols="12"
+            md="6"
+            lg="4"
+            xl="3"
+          >
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -38,10 +46,14 @@
                 height="250"
                 :src="item.banner ? item.banner : 'https://cdn.vuetifyjs.com/images/cards/cooking.png'"
               >
-              <v-card-title><div class="text-h3">{{ item.name }}</div></v-card-title>
-            </v-img>
+                <v-card-title>
+                  <div class="text-h3">
+                    {{ item.name }}
+                  </div>
+                </v-card-title>
+              </v-img>
 
-            <v-card-title>{{ item.name }}</v-card-title>
+              <v-card-title>{{ item.name }}</v-card-title>
 
               <v-card-text>
                 <div class="text-subtitle-1">
@@ -76,22 +88,27 @@
 </template>
 
 <script>
-import AppKontrolaAdd from '../components/app-kontrola-add.vue';
+import { mapGetters } from 'vuex'
+
 export default {
-    name: "KontrolaPage",
-    data() {
-        return {
-            posty: {},
-            loading: false,
-            selection: 1,
-            dialog: false
-        };
-    },
-    mounted() {
-        this.$fire.database.ref("posty").on("value", (snapshot) => {
-            this.posty = snapshot.val();
-        });
-    },
-    components: { AppKontrolaAdd }
+  name: 'KontrolaPage',
+  data () {
+    return {
+      posty: {},
+      loading: false,
+      selection: 1,
+      dialog: false
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'loggedIn'
+    ])
+  },
+  mounted () {
+    this.$fire.database.ref('posty').on('value', (snapshot) => {
+      this.posty = snapshot.val()
+    })
+  }
 }
 </script>
