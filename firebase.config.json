@@ -1,5 +1,5 @@
 {
-    "config":{
+    "rules":{
         "inicjatywy":{
             ".read":true,
             "$id_inicjatywy":{
