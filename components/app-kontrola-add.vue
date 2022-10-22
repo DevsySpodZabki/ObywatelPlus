@@ -69,7 +69,8 @@
           banner: '',
           name: '',
           opis: '',
-          user: this.$store.state.user.displayName
+          user: this.$store.state.user.displayName,
+          owner: this.$store.state.user.uid
         },
         valid: false
       }

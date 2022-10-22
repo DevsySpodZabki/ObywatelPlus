@@ -1,0 +1,27 @@
+{
+    "rules":{
+        "inicjatywy":{
+            ".read":true,
+            "$id_inicjatywy":{
+                ".write":"(data.child('owner').val() == auth.uid || !data.exists()) && (newData.child('owner').val() == auth.uid || !newData.exists())",
+                "collected":{
+                    "$user_id":{
+                        ".write":"auth.uid == $user_id"
+                    }
+                }
+            }
+        },
+        "posty":{
+            ".read":true,
+            "$id_inicjatywy":{
+                ".write":"(data.child('owner').val() == auth.uid || !data.exists()) && (newData.child('owner').val() == auth.uid || !newData.exists())"
+            }
+        },
+        "zbiorki":{
+            ".read":true,
+            "$id_inicjatywy":{
+                ".write":"(data.child('owner').val() == auth.uid || !data.exists()) && (newData.child('owner').val() == auth.uid || !newData.exists())"
+            }
+        }
+    }
+}

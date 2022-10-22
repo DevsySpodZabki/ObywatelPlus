@@ -21,7 +21,7 @@
           <AppInicjatywaAdd @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="item in inicjatywy" :key="item.name">
+          <v-col v-for="(item,index) in inicjatywy" :key="item.name">
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -49,7 +49,7 @@
                   Miasto: {{ item.city }} (ZIP: {{ item.zip }}), Gmina: {{ item.gmina }}
                 </div>
                 <br>
-                <div>Zebranych głosów: {{ item.collected }}</div>
+                <div>Zebranych głosów: {{ glosy(item) }}</div>
               </v-card-text>
 
               <v-divider class="mx-4" />
@@ -59,7 +59,9 @@
                   <v-btn
                     block
                     color="deep-purple lighten-2"
-                    text
+                    :text="item.collected && item.collected[$store.state.user.uid]"
+                    @click="zaglosuj(item,index)"
+                    :disabled="!loggedIn"
                   >
                     Przekaż głos na inicjatywę
                   </v-btn>
@@ -74,6 +76,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'InicjatywyPage',
   data () {
@@ -84,10 +88,32 @@ export default {
       dialog: false
     }
   },
+  computed:{
+    ...mapGetters([
+      'loggedIn'
+    ])
+  },
   mounted () {
     this.$fire.database.ref('inicjatywy').on('value', (snapshot) => {
       this.inicjatywy = snapshot.val()
     })
   },
+  methods:{
+    zaglosuj(item,index){
+      const {uid} = this.$store.state.user
+      if(item.collected && item.collected[uid]){
+        this.$fire.database.ref(`inicjatywy/${index}/collected/${uid}`).remove()
+      }else{
+        this.$fire.database.ref(`inicjatywy/${index}/collected/${uid}`).set(true)
+      }
+    },
+    glosy(item){
+      if(item.collected){
+        return Object.keys(item.collected).length
+      }else{
+        return 0
+      }
+    }
+  }
 }
 </script>

@@ -110,7 +110,7 @@
     <section id="zbiorki">
       <v-container>
         <v-row>
-          <v-col cols="12" lg="6" class="d-flex" v-if="$vuetify.breakpoint.smAndDown">
+          <v-col cols="12" lg="6" class="d-lg-none d-flex">
             <v-img class="mx-auto" max-height="500" max-width="500" src="zbiorki.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
