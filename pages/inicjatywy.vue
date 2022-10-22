@@ -21,7 +21,14 @@
           <AppInicjatywaAdd @close="dialog=false" />
         </v-dialog>
         <v-row>
-          <v-col v-for="(item,index) in inicjatywy" :key="item.name" cols="12" md="6">
+          <v-col
+            v-for="(item,index) in inicjatywy"
+            :key="item.name"
+            cols="12"
+            md="6"
+            lg="4"
+            xl="3"
+          >
             <v-card
               :loading="loading"
               class="mx-auto my-12"
@@ -60,8 +67,8 @@
                     block
                     color="deep-purple lighten-2"
                     :text="item.collected && item.collected[$store.state.user.uid]"
-                    @click="zaglosuj(item,index)"
                     :disabled="!loggedIn"
+                    @click="zaglosuj(item,index)"
                   >
                     <template v-if="item.collected && item.collected[$store.state.user.uid]">
                       Zrezygnuj z głosu
@@ -93,7 +100,7 @@ export default {
       dialog: false
     }
   },
-  computed:{
+  computed: {
     ...mapGetters([
       'loggedIn'
     ])
@@ -103,19 +110,19 @@ export default {
       this.inicjatywy = snapshot.val()
     })
   },
-  methods:{
-    zaglosuj(item,index){
-      const {uid} = this.$store.state.user
-      if(item.collected && item.collected[uid]){
+  methods: {
+    zaglosuj (item, index) {
+      const { uid } = this.$store.state.user
+      if (item.collected && item.collected[uid]) {
         this.$fire.database.ref(`inicjatywy/${index}/collected/${uid}`).remove()
-      }else{
+      } else {
         this.$fire.database.ref(`inicjatywy/${index}/collected/${uid}`).set(true)
       }
     },
-    glosy(item){
-      if(item.collected){
+    glosy (item) {
+      if (item.collected) {
         return Object.keys(item.collected).length
-      }else{
+      } else {
         return 0
       }
     }
