@@ -50,6 +50,7 @@
           </span>
         </v-btn>
         <v-dialog
+          v-model="dialogSignin"
           v-if="!loggedIn"
           width="600"
         >
@@ -62,9 +63,17 @@
               Zaloguj się
             </v-btn>
           </template>
-          <v-card class="rounded-card pa-3" outlined>
+          <v-card class="rounded-lg" outlined>
             <v-card-title class="text-h4 mb-3">
               Zaloguj się
+              <v-spacer/>
+              <v-btn
+                icon
+                dark
+                @click="dialogSignin=false"
+              >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
             </v-card-title>
             <v-card-text>
               <App-signin />
@@ -143,6 +152,7 @@ export default {
 
   data () {
     return {
+      dialogSignin: false,
       bg: 'transparent',
       dialog: false,
       el: '0',
