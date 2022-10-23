@@ -25,32 +25,30 @@
       </v-menu>
       <v-spacer />
       <v-toolbar-items>
-        <div class="hidden-sm-and-down hidden-md-and-down ml-2">
-        <v-btn text to="/inicjatywy">
+        <v-btn text to="/inicjatywy" class="hidden-sm-and-down">
           <v-icon>
             mdi-lightbulb
           </v-icon>
-          <span>
+          <span class="hidden-md-and-down ml-2">
             Utwórz inicjatywę społeczną
           </span>
         </v-btn>
-        <v-btn text to="/kontrola">
+        <v-btn text to="/kontrola" class="hidden-sm-and-down">
           <v-icon>
             mdi-account-tie-hat
           </v-icon>
-          <span>
+          <span class="hidden-md-and-down ml-2">
             Kontrola samorządów
           </span>
         </v-btn>
-        <v-btn text to="/zbiorki">
+        <v-btn text to="/zbiorki" class="hidden-sm-and-down">
           <v-icon>
             mdi-piggy-bank
           </v-icon>
-          <span>
+          <span class="hidden-md-and-down ml-2">
             Zbiórki & budżety obywatelskie
           </span>
         </v-btn>
-      </div>
         <v-dialog
           v-model="dialogSignin"
           v-if="!loggedIn"
