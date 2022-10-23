@@ -39,3 +39,6 @@ Problemy techniczne związane z dostepnością do sieci internet w mniejszych mi
 # Dlaczego akurat Wy powinniście wygrać?
 (Napisz, co wyróżnia Was pomysł lub jego realizacja np. wybór innowacyjnej technologii)
 Nasze rozwiązanie pozwala na cyfrowa aktywizacją małych lokalnych społeczności. 
+
+# PROBLEMY ORAZ PYTANIA
+W razie problemów lub pytań prosimy o kontakt na adres e-mail: refertv05@gmail.com
