@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import isUrl from 'validator/es/lib/isUrl';
+import isUrl from 'validator/es/lib/isUrl'
 
 export default {
   data () {
@@ -115,7 +115,7 @@ export default {
         this.$emit('close')
       }
     },
-    isUrl(url) {
+    isUrl (url) {
       return isUrl(url)
     }
   }
