@@ -71,7 +71,7 @@
               </v-card-text>
 
               <v-divider class="mx-4" />
-              <v-text-field v-model="ile" label="Ile chcesz wpłacić (zł)?" type="number" class="mx-3" />
+              <v-text-field v-model="item.ile" value="1" label="Ile chcesz wpłacić (zł)?" type="number" class="mx-3" />
               <v-card-actions>
                 <v-container>
                   <v-btn
@@ -100,7 +100,6 @@ export default {
   name: 'ZbiorkiPage',
   data () {
     return {
-      ile: 1,
       loading: false,
       selection: 1,
       dialog: false,
@@ -123,8 +122,8 @@ export default {
     },
     wplac(item){
       const amount = this.ile
-      const signature = md5(`914Dn5G$5!z0Aw8Is7Wt1Gl2Ud9Ju8Fi1Km${amount}`)
-      document.location.href = `https://microsms.pl/api/bankTransfer/?shopid=914&signature=${signature}&amount=${amount}&description=${item.name}`
+      const signature = md5(`914Dn5G$5!z0Aw8Is7Wt1Gl2Ud9Ju8Fi1Km${item.ile}`)
+      document.location.href = `https://microsms.pl/api/bankTransfer/?shopid=914&signature=${signature}&amount=${item.ile}&description=${item.name}`
     }
   }
 }
