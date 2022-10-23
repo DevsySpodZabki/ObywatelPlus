@@ -27,6 +27,9 @@
         <v-text-field
           v-model="fields.banner"
           label="Adres URL do baneru inicjatywy"
+          :rules="[
+            () => !!isUrl(fields.banner) || 'Wprowadź poprawny URL',
+          ]"
           required
         />
         <v-text-field
@@ -82,6 +85,8 @@
 </template>
 
 <script>
+import isUrl from 'validator/es/lib/isUrl';
+
 export default {
   data () {
     return {
@@ -109,6 +114,9 @@ export default {
         this.fields = this.defaultFields
         this.$emit('close')
       }
+    },
+    isUrl(url) {
+      return isUrl(url)
     }
   }
 }
