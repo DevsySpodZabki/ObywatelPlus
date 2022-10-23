@@ -47,15 +47,22 @@
             <v-card color="transparent">
               <v-card-title class="display-1">Komentarze</v-card-title>
 
-              <v-card-text> 
-                {{ post.comments }}
-              </v-card-text>
-              <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
               <v-card-text>
-                <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
-                <v-btn method="get" type="submit">Wstaw</v-btn>
+                <v-card max-width="344" class="mb-4" v-for="(komentarz,index) in post.comments" v-bind:key="index">
+                  <v-card-text>
+                    <div>{{ komentarz.displayName }}</div>
+                    <div class="text--primary">
+                      {{ komentarz.comment }}
+                    </div>
+                  </v-card-text>
+                </v-card>
               </v-card-text>
-            </v-form>
+              <v-form @submit="comment(commentFieldText)" @submit.prevent>
+                <v-card-text>
+                  <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
+                  <v-btn method="get" type="submit">Wstaw</v-btn>
+                </v-card-text>
+              </v-form>
             </v-card>
           </v-col>
         </v-row>
@@ -73,24 +80,17 @@ export default {
     this.$fire.database.ref('posty').on('value', (snapshot) => {
       this.posty = snapshot.val()
       this.post = this.posty[this.$route.params.postid]
+     // console.log(post.komentarze)
     })
   },
   methods: {
-    comment(posty, comment) {
+    comment(comment) {
       console.log(this.loggedIn)
       if (this.loggedIn) {
-        const { uid } = this.$store.state.user
-        if (posty.comments && posty.comments[uid]) {
-          this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/${uid}`).remove()
-        } else {
-          this.$data.commentFieldText = "";
-          this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/${uid}`).push(comment)
-        }
+        const { uid, displayName } = this.$store.state.user
+        this.$data.commentFieldText = "";
+        this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/`).push({ author: uid, displayName, comment })
       }
-    },
-    async getUser(uid) {
-      let user = await this.$fire.getUser.auth.getUser(uid)
-      return user
     },
     comments(item) {
       if (item.comments) {
@@ -110,10 +110,6 @@ export default {
       commentFieldText: "",
       post: {}
     }
-  },
-  async mounted() {
-    let user = await getUser("lPaneIX1qVUH3ibPxHsLBsnhOjc2")
-    console.log(user)
   }
 }
 </script>
