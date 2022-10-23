@@ -59,18 +59,55 @@
               </v-card-title>
 
               <v-card-text>
+
                 <v-card v-for="(komentarz,index) in post.comments" :key="index" max-width="40%" class="mb-4">
                   <v-card-text>
+
                     <div>{{ komentarz.displayName }}</div>
                     <div class="text--primary">
                       {{ komentarz.comment }}
+
+                      <div style="width: fit-content; float: right;" class="d-flex">
+                        <v-icon
+                          v-if="komentarz.likes && komentarz.likes[$store.state.user.uid] == false"
+                          color="green"
+                          @click="unlike(komentarz, index)"
+                        >
+                          mdi-thumb-down
+                        </v-icon>
+                        <v-icon v-else @click="unlike(komentarz, index)">
+                          mdi-thumb-down-outline
+                        </v-icon>
+                        <div class="break" />
+                        <p>123</p>
+                      </div>
+
+                      <div style="width: fit-content; float: right;" class="d-flex">
+                        <v-icon
+                          v-if="komentarz.likes && komentarz.likes[$store.state.user.uid] == true"
+                          color="green"
+                          @click="like(komentarz, index)"
+                        >
+                          mdi-thumb-up
+                        </v-icon>
+                        <v-icon v-else @click="like(komentarz, index)">
+                          mdi-thumb-up-outline
+                        </v-icon>
+                        <div class="break" />
+                        <p>123</p>
+                      </div>
                     </div>
                   </v-card-text>
                 </v-card>
               </v-card-text>
               <v-form v-model="commentValid" @submit="comment(commentFieldText)" @submit.prevent>
                 <v-card-text>
-                  <v-text-field v-model="commentFieldText" :rules="commentRules" :counter="100" label="Napisz komentarz" />
+                  <v-text-field
+                    v-model="commentFieldText"
+                    :rules="commentRules"
+                    :counter="100"
+                    label="Napisz komentarz"
+                  />
                   <v-btn :disabled="!commentValid" method="get" type="submit">
                     Wstaw
                   </v-btn>
@@ -96,13 +133,30 @@ export default {
   },
   methods: {
     comment (comment) {
-      if (!this.commentValid) {
-        alert('nie')
-      }
       if (this.loggedIn && this.commentValid) {
         const { uid, displayName } = this.$store.state.user
         this.$data.commentFieldText = ''
         this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/`).push({ author: uid, displayName, comment })
+      }
+    },
+    like (komentarz, komentarzid) {
+      if (this.loggedIn) {
+        const { uid } = this.$store.state.user
+        if (komentarz.likes && komentarz.likes[uid] === true) {
+          this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/${komentarzid}/likes/${uid}`).remove()
+        } else {
+          this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/${komentarzid}/likes/${uid}`).set(true)
+        }
+      }
+    },
+    unlike (komentarz, komentarzid) {
+      if (this.loggedIn) {
+        const { uid } = this.$store.state.user
+        if (komentarz.likes && komentarz.likes[uid] === false) {
+          this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/${komentarzid}/likes/${uid}`).remove()
+        } else {
+          this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/${komentarzid}/likes/${uid}`).set(false)
+        }
       }
     },
     comments (item) {
