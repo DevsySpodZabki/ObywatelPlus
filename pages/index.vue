@@ -8,7 +8,7 @@
               <v-col class="d-flex" cols="12" md="6">
                 <span class="my-auto">
                   <div
-                    :class="[$vuetify.breakpoint.smAndDown ? 'display-4': 'display-4']"
+                    :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
                     class="font-weight-black mx-sm-15 mx-md-0"
                   >
                     Obywatel Plus
@@ -64,18 +64,6 @@
                 <v-img class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
               </v-col>
             </v-row>
-            <center>
-              <v-btn
-                class="align-self-end"
-                fab
-                color="blue"
-                outlined
-                aria-label="goTo"
-                @click="$vuetify.goTo('#kontrola')"
-              >
-                <v-icon>mdi-chevron-double-down</v-icon>
-              </v-btn>
-            </center>
           </v-container>
         </div>
       </v-theme-provider>
@@ -85,7 +73,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-flex">
-            <v-img class="mx-auto" src="kontrola.svg" />
+            <v-img class="mx-auto my-auto" src="kontrola.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto  mx-sm-15 mx-md-0">
@@ -95,8 +83,7 @@
               >
                 Obywatelska kontrola samorządów
               </span>
-              <br>
-              <br>
+              <br><br>
               <span
                 class="headline"
               >
@@ -107,11 +94,12 @@
         </v-row>
       </v-container>
     </section>
+
     <section id="zbiorki">
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-lg-none d-flex">
-            <v-img class="mx-auto" src="zbiorki.svg" />
+            <v-img class="mx-auto my-auto" src="zbiorki.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto  mx-sm-15 mx-md-0">
@@ -121,8 +109,7 @@
               >
                 Tworzenie zbiórek i budżetów obywatelskich
               </span>
-              <br>
-              <br>
+              <br><br>
               <span
                 class="headline"
               >
@@ -140,7 +127,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" lg="6" class="d-flex">
-            <v-img class="mx-auto" src="ideas.svg" />
+            <v-img class="mx-auto my-auto" src="ideas.svg" />
           </v-col>
           <v-col class="d-flex" cols="12" lg="6">
             <span class="my-auto  mx-sm-15 mx-md-0">
@@ -150,8 +137,7 @@
               >
                 Dziel się inicjatywami społecznymi dla Twojej gminy lub powiatu
               </span>
-              <br>
-              <br>
+              <br><br>
               <span
                 class="headline"
               >

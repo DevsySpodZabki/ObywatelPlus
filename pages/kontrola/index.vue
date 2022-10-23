@@ -60,7 +60,7 @@
                     Post utworzony przez: {{ item.user }}
                   </div>
                   <div class="text-subtitle-1">
-                    Komentarze: {{ item.comments }}
+                    Komentarze: {{ comments(item) }}
                   </div>
                   <br>
                   <div>{{ item.opis }}</div>
@@ -110,6 +110,15 @@
       this.$fire.database.ref('posty').on('value', (snapshot) => {
         this.posty = snapshot.val()
       })
+    },
+    methods: {
+      comments(item) {
+      if (item.comments) {
+        return Object.keys(item.comments).length
+      } else {
+        return 0
+      }
+    },
     }
   }
   </script>
