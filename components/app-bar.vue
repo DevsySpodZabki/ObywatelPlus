@@ -25,7 +25,7 @@
       </v-menu>
       <v-spacer />
       <v-toolbar-items>
-        <v-btn text to="/inicjatywy">
+        <v-btn text to="/inicjatywy" class="hidden-sm-and-down">
           <v-icon>
             mdi-lightbulb
           </v-icon>
@@ -33,7 +33,7 @@
             Utwórz inicjatywę społeczną
           </span>
         </v-btn>
-        <v-btn text to="/kontrola">
+        <v-btn text to="/kontrola" class="hidden-sm-and-down">
           <v-icon>
             mdi-account-tie-hat
           </v-icon>
@@ -41,7 +41,7 @@
             Kontrola samorządów
           </span>
         </v-btn>
-        <v-btn text to="/zbiorki">
+        <v-btn text to="/zbiorki" class="hidden-sm-and-down">
           <v-icon>
             mdi-piggy-bank
           </v-icon>
@@ -86,7 +86,6 @@
               color="primary"
               dark
               v-bind="attrs"
-              class="px-7"
               v-on="on"
             >
               {{ account }}

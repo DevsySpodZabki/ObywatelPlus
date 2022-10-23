@@ -10,6 +10,7 @@
       />
     </v-main>
     <AppFooter />
+    <AppBottonMobileNav />
   </v-app>
 </template>
 

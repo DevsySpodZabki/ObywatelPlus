@@ -7,7 +7,7 @@
             <v-card rounded="lg">
               <v-card-title class="display-2">{{ post.name }}</v-card-title>
               <v-card-subtitle></v-card-subtitle>
-              <v-card-text class="display-1">{{ post.opis }}</v-card-text>
+              <v-card-text class="text--primary">{{ post.opis }}</v-card-text>
               <v-card-actions>
               </v-card-actions>
             </v-card>
