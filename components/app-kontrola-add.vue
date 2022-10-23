@@ -33,13 +33,15 @@
           v-model="fields.opis"
           :rules="[
             () => !!fields.opis || 'Wymagane',
-            () => !!fields.opis && fields.opis.length <= 450 || 'Treść posta nie może być dłuższa niż 450 znaków'
+            () => !!fields.opis && fields.opis.length <= 200 || 'Krótki opis posta nie może być dłuższy niż 200 znaków'
           ]"
-          label="Treść posta"
-          placeholder="Treść"
+          label="Krótki opis"
+          placeholder="Opis"
           counter="450"
           required
         />
+        <p class="ma-0 mt-3 mt-0">Sformatowany opis całego posta</p>
+        <TipTap :editorcontent="fields.tresc" @content="fields.tresc=$event" />
       </v-form>
     </v-card-text>
     <v-divider class="mt-12" />
@@ -64,18 +66,21 @@
 export default {
   data () {
     return {
-      fields: {},
+      fields: {
+
+      },
       defaultFields: {
         banner: '',
         name: '',
         opis: '',
+        tresc: '',
         user: this.$store.state.user.displayName,
         owner: this.$store.state.user.uid
       },
       valid: false
     }
   },
-  mounted () {
+  beforeMount () {
     this.fields = this.defaultFields
   },
   methods: {
