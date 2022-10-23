@@ -4,9 +4,8 @@ import Vuetify from 'vuetify'
 import { TiptapVuetifyPlugin } from 'tiptap-vuetify'
 // don't forget to import CSS styles
 import 'tiptap-vuetify/dist/main.css'
-// Vuetify's CSS styles 
+// Vuetify's CSS styles
 import 'vuetify/dist/vuetify.min.css'
-
 
 // Vuetify Object (as described in the Vuetify 2 documentation)
 const vuetify = new Vuetify()
