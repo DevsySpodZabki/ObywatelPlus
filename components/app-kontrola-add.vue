@@ -28,9 +28,6 @@
           v-model="fields.banner"
           label="Adres URL do baneru posta"
           required
-          :rules="[
-            () => !!isUrl(fields.banner) || 'Wprowadź poprawny URL',
-          ]"
         />
         <v-text-field
           v-model="fields.opis"
@@ -80,7 +77,8 @@ export default {
         opis: '',
         tresc: '<h2>Opisz dokładnie swój post tutaj</h2>',
         user: this.$store.state.user.displayName,
-        owner: this.$store.state.user.uid
+        owner: this.$store.state.user.uid,
+        date: Date.now()
       },
       valid: false
     }

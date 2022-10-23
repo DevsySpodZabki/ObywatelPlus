@@ -3,6 +3,17 @@
     <v-main>
       <v-container style="margin-top:100px;">
         <v-row>
+          <v-col>
+            <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
+              <v-card-title class="display-2">
+                {{ post.name }}
+              </v-card-title>
+              <v-card-subtitle />
+              <v-container>
+              <v-card-text v-if="!loggedIn" class="display-1" v-html="post.tresc || post.opis" />
+            </v-container>
+            </v-card>
+          </v-col>
           <v-col cols="2">
             <v-list color="rgb(0, 0, 0, 0.1)">
               <v-list-item>
@@ -12,6 +23,8 @@
                   </v-list-item-title>
                   <v-list-item-title>
                     {{ post.user }}
+                    <div>Data utworzenia:</div>
+                    {{ new Date(post.date).toLocaleDateString('pl-PL') }} {{ new Date(post.date).toLocaleTimeString('pl-PL') }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -20,35 +33,14 @@
 
               <v-list-item link color="grey lighten-4">
                 <v-list-item-content>
+                  <NuxtLink to="/kontrola" style="text-decoration: none; color: inherit;">
                   <v-list-item-title>
                     Wróć do strony z kontrolą
                   </v-list-item-title>
+                </NuxtLink>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
-          </v-col>
-
-          <v-col>
-            <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
-              <v-card-title class="display-2">
-                {{ post.name }}
-              </v-card-title>
-              <v-card-subtitle />
-              <v-card-text class="display-1" v-html="post.tresc" />
-              <v-card-actions>
-                <v-btn
-                  outlined
-                  large
-                  class="mb-1"
-                  color="purple"
-                  dark
-                  rounded
-                  @click="comment(posty, commentFieldText)"
-                >
-                  Skomentuj
-                </v-btn>
-              </v-card-actions>
-            </v-card>
           </v-col>
         </v-row>
         <v-row>
@@ -63,7 +55,7 @@
                 <v-card v-for="(komentarz,index) in post.comments" :key="index" max-width="40%" class="mb-4">
                   <v-card-text>
 
-                    <div>{{ komentarz.displayName }}</div>
+                    <div>{{ komentarz.displayName }} {{ new Date(komentarz.date).toLocaleDateString('pl-PL') }} o godz {{ new Date(komentarz.date).toLocaleTimeString('pl-PL') }}</div>
                     <div class="text--primary">
                       {{ komentarz.comment }}
 
@@ -81,6 +73,7 @@
                         <div class="break" />
                         <p>123</p>
                       </div>
+                      
 
                       <div style="width: fit-content; float: right;" class="d-flex">
                         <v-icon
@@ -100,6 +93,7 @@
                   </v-card-text>
                 </v-card>
               </v-card-text>
+              <v-container v-if="loggedIn">
               <v-form v-model="commentValid" @submit="comment(commentFieldText)" @submit.prevent>
                 <v-card-text>
                   <v-text-field
@@ -113,6 +107,7 @@
                   </v-btn>
                 </v-card-text>
               </v-form>
+            </v-container>
             </v-card>
           </v-col>
         </v-row>
@@ -136,7 +131,7 @@ export default {
       if (this.loggedIn && this.commentValid) {
         const { uid, displayName } = this.$store.state.user
         this.$data.commentFieldText = ''
-        this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/`).push({ author: uid, displayName, comment })
+        this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/`).push({ author: uid, displayName, comment, date: Date.now()})
       }
     },
     like (komentarz, komentarzid) {
@@ -182,6 +177,13 @@ export default {
       ],
       post: {}
     }
-  }
+  },
+  watch: {
+    loggedIn () {
+      if (this.loggedIn) {
+        this.name = this.$store.state.user.displayName
+      }
+    }
+  },
 }
 </script>

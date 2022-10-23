@@ -27,9 +27,6 @@
         <v-text-field
           v-model="fields.banner"
           label="Adres URL do baneru inicjatywy"
-          :rules="[
-            () => !!isUrl(fields.banner) || 'Wprowadź poprawny URL',
-          ]"
           required
         />
         <v-text-field

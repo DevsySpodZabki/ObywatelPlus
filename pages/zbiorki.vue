@@ -100,7 +100,7 @@ export default {
   name: 'ZbiorkiPage',
   data () {
     return {
-      ile:0,
+      ile: 1,
       loading: false,
       selection: 1,
       dialog: false,
