@@ -3,32 +3,8 @@
     <v-main>
       <v-container style="margin-top:100px;">
         <v-row>
-          <v-col>
-            <v-card rounded="lg">
-              <v-card-title class="display-2">{{ post.name }}</v-card-title>
-              <v-card-subtitle></v-card-subtitle>
-              <v-card-text class="text--primary">{{ post.opis }}</v-card-text>
-              <v-card-actions>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col>
-            <v-card>
-              <v-card-title class="display-1">Komentarze</v-card-title>
-
-              <v-card-text> {{ post.comments }} </v-card-text>
-              <v-form @submit="comment(posty, commentFieldText)" @submit.prevent>
-              <v-card-text>
-                <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
-                <v-btn method="get" type="submit">Wstaw</v-btn>
-              </v-card-text>
-            </v-form>
-            </v-card>
-          </v-col>
           <v-col cols="2">
-            <v-list>
+            <v-list color="rgb(0, 0, 0, 0.1)">
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -51,11 +27,12 @@
               </v-list-item>
             </v-list>
           </v-col>
+
           <v-col>
             <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
-              <v-card-title class="display-2">Tytuł</v-card-title>
+              <v-card-title class="display-2">{{ post.name }}</v-card-title>
               <v-card-subtitle></v-card-subtitle>
-              <v-card-text class="display-1"></v-card-text>
+              <v-card-text class="display-1" v-html="post.tresc"></v-card-text>
               <v-card-actions>
                 <v-btn outlined large class="mb-1" color="purple" dark rounded
                   @click="comment(posty, commentFieldText)">
@@ -71,7 +48,7 @@
               <v-card-title class="display-1">Komentarze</v-card-title>
 
               <v-card-text>
-                <v-card max-width="344" class="mb-4" v-for="(komentarz,index) in post.comments" v-bind:key="index">
+                <v-card max-width="40%" class="mb-4" v-for="(komentarz,index) in post.comments" v-bind:key="index">
                   <v-card-text>
                     <div>{{ komentarz.displayName }}</div>
                     <div class="text--primary">
@@ -80,10 +57,10 @@
                   </v-card-text>
                 </v-card>
               </v-card-text>
-              <v-form @submit="comment(commentFieldText)" @submit.prevent>
+              <v-form v-model="commentValid" @submit="comment(commentFieldText)" @submit.prevent>
                 <v-card-text>
-                  <v-text-field v-model="commentFieldText" :counter="100" label="Napisz komentarz" />
-                  <v-btn method="get" type="submit">Wstaw</v-btn>
+                  <v-text-field v-model="commentFieldText" :rules="commentRules" :counter="100" label="Napisz komentarz" />
+                  <v-btn :disabled="!commentValid" method="get" type="submit">Wstaw</v-btn>
                 </v-card-text>
               </v-form>
             </v-card>
@@ -96,19 +73,21 @@
   
 <script>
 import { mapGetters } from 'vuex'
-
 export default {
   name: 'PostID',
   mounted() {
     this.$fire.database.ref('posty').on('value', (snapshot) => {
       this.posty = snapshot.val()
       this.post = this.posty[this.$route.params.postid]
+     // console.log(post.komentarze)
     })
   },
   methods: {
     comment(comment) {
-      console.log(this.loggedIn)
-      if (this.loggedIn) {
+      if (!this.commentValid) {
+        alert("nie")
+      }
+      if (this.loggedIn && this.commentValid) {
         const { uid, displayName } = this.$store.state.user
         this.$data.commentFieldText = "";
         this.$fire.database.ref(`posty/${this.$route.params.postid}/comments/`).push({ author: uid, displayName, comment })
@@ -130,6 +109,11 @@ export default {
   data() {
     return {
       commentFieldText: "",
+      commentValid: false,
+      commentRules: [
+        v => !!v || 'Wpisz treść komentarza!',
+        v => (v && v.length < 100) || 'Komentarz nie może mieć więcej niż 100 znaków!',
+      ],
       post: {}
     }
   }
