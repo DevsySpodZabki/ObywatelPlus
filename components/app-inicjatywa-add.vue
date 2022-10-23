@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import isUrl from 'validator/es/lib/isUrl';
+import isUrl from 'validator';
 
 export default {
   data () {

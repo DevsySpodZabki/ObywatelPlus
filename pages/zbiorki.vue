@@ -71,13 +71,14 @@
               </v-card-text>
 
               <v-divider class="mx-4" />
-
+              <v-text-field v-model="ile" label="Ile chcesz wpłacić (zł)?" type="number" class="mx-3" />
               <v-card-actions>
                 <v-container>
                   <v-btn
                     block
                     color="deep-purple lighten-2"
                     text
+                    @click="wplac(item)"
                   >
                     Wpłać pieniądze
                   </v-btn>
@@ -93,11 +94,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import md5 from 'md5'
 
 export default {
   name: 'ZbiorkiPage',
   data () {
     return {
+      ile:0,
       loading: false,
       selection: 1,
       dialog: false,
@@ -117,6 +120,11 @@ export default {
   methods: {
     collected_chart (item) {
       return item.collected / item.goal * 100
+    },
+    wplac(item){
+      const amount = this.ile
+      const signature = md5(`914Dn5G$5!z0Aw8Is7Wt1Gl2Ud9Ju8Fi1Km${amount}`)
+      document.location.href = `https://microsms.pl/api/bankTransfer/?shopid=914&signature=${signature}&amount=${amount}&description=${item.name}`
     }
   }
 }
