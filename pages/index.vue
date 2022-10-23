@@ -60,7 +60,7 @@
                 </span>
               </v-col>
 
-              <v-col cols="12" md="6" class="d-flex">
+              <v-col cols="12" md="6">
                 <v-img class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
               </v-col>
             </v-row>

@@ -43,7 +43,9 @@
           counter="450"
           required
         />
-        <p class="ma-0 mt-3 mt-0">Sformatowany opis całego posta</p>
+        <p class="ma-0 mt-3 mt-0">
+          Sformatowany opis całego posta
+        </p>
         <TipTap :editorcontent="fields.tresc" @content="fields.tresc=$event" />
       </v-form>
     </v-card-text>
@@ -94,7 +96,7 @@ export default {
         this.$emit('close')
       }
     },
-    isUrl(url) {
+    isUrl (url) {
       return isUrl(url)
     }
   }

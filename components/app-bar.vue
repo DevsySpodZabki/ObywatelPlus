@@ -50,8 +50,8 @@
           </span>
         </v-btn>
         <v-dialog
-          v-model="dialogSignin"
           v-if="!loggedIn"
+          v-model="dialogSignin"
           width="600"
         >
           <template #activator="{ on }">
@@ -66,14 +66,14 @@
           <v-card class="rounded-lg" outlined>
             <v-card-title class="text-h4 mb-3">
               Zaloguj się
-              <v-spacer/>
+              <v-spacer />
               <v-btn
                 icon
                 dark
                 @click="dialogSignin=false"
               >
-            <v-icon>mdi-close</v-icon>
-          </v-btn>
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
             </v-card-title>
             <v-card-text>
               <App-signin />
@@ -148,12 +148,12 @@ export default {
       bg: 'transparent',
       dialog: false,
       el: '0',
-      name: ""
+      name: ''
     }
   },
-  watch:{
-    loggedIn(){
-      if(this.loggedIn){
+  watch: {
+    loggedIn () {
+      if (this.loggedIn) {
         this.name = this.$store.state.user.displayName
       }
     }
@@ -174,7 +174,7 @@ export default {
     if (this.loggedIn && !this.$store.state.user.displayName) {
       this.dialog = true
     }
-    if(this.loggedIn && this.$store.state.user.displayName){
+    if (this.loggedIn && this.$store.state.user.displayName) {
       this.name = this.$store.state.user.displayName
     }
     window.onscroll = () => {

@@ -6,6 +6,7 @@
         <h2>
           3rd party services:<br>
           <a href="https://storyset.com/online">Online illustrations by Storyset</a><br>
+          <a href="https://www.flaticon.com/free-icons/people" title="people icons">People icons created by Freepik - Flaticon</a>
         </h2>
       </v-container>
     </v-main>
