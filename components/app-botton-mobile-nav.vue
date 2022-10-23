@@ -16,9 +16,10 @@
       <span>Zbiórki i<br>budżety</span>
       <v-icon>mdi-piggy-bank</v-icon>
     </v-btn>
-    <v-btn>
-      <span>Konto</span>
-      <v-icon>mdi-account</v-icon>
-    </v-btn>
   </v-bottom-navigation>
 </template>
+<script>
+export default {
+  name: 'MobileNav'
+}
+</script>

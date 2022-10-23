@@ -24,7 +24,7 @@
         </template>
       </v-menu>
       <v-spacer />
-      <v-toolbar-items>
+      <v-toolbar-items style="margin:0px;">
         <v-btn text to="/inicjatywy" class="hidden-sm-and-down">
           <v-icon>
             mdi-lightbulb
