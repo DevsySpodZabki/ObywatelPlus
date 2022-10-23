@@ -16,54 +16,26 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+# Uzasadnienie: Na jakie potrzeby/problem odpowiada Wasze rozwiązanie? W jaki sposób wpisuje się w temat Hack Heroes 2022?
+Aplikacja umożliwia zorganizowanie działań obywatelskich oraz bieżącą kontrolę ich realizacji
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+# Opisz działanie Waszej aplikacji/narzędzia*
+# (W jaki sposób działa Wasza aplikacja? Co może dzięki niej osiągnąć użytkownik? Jaką ma funkcjonalność?)
 
-## Special Directories
+Aplikacja ma wspierać inicjatywy obywatelskie - głosowania i wybory najpopularniejszych projektów do realizacji
+Aplikacja pozwala organizować zbiórki na wybrane projekty.
+Aplikacja pozwala na wymianę postów dotyczacych realizacji inicatyw obywatelskich miedzy zalogowanymi użytkownikami. 
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+# Jak widzicie dalszy rozwój Waszego rozwiązania?
+# (W jaki sposób Wasz projekt mógłby zostać wdrożony lub rozwijany? Jacy partnerzy mogliby się zaangażować w jego rozwój?)
 
-### `assets`
+Rozwiązanie może zostać wdrożone w jednostkach samorządu terytorialnego ( gminy, starostwa). Wraz z rozwojem aplikacji można by dodawać moduły pozwalajce na wprowadzenie e-usług dla obywateli.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+# Jakie widzicie zagrożenia/ryzyka dla Waszego rozwiązania?
+(Opisz zdiagnozowane zagrożenia jak np. problemy technologiczne czy konieczność zaangażowania innych podmiotów np. urząd miasta)
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+Problemy techniczne związane z dostepnością do sieci internet w mniejszych miejscowościach, wykluczające potencjalnych uzytkowników. 
 
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+# Dlaczego akurat Wy powinniście wygrać?
+(Napisz, co wyróżnia Was pomysł lub jego realizacja np. wybór innowacyjnej technologii)
+Nasze rozwiązanie pozwala na cyfrowa aktywizacją małych lokalnych społeczności. 
