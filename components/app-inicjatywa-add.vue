@@ -115,7 +115,7 @@ export default {
         this.$emit('close')
       }
     },
-    isUrl(url) {
+    isUrl (url) {
       return isUrl(url)
     }
   }

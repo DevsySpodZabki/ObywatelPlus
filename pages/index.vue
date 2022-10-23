@@ -9,7 +9,7 @@
                 <span class="my-auto">
                   <div
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
-                    class="font-weight-black mx-sm-15 mx-md-0"
+                    class="font-weight-black mx-sm-15 mx-md-0 text-center"
                   >
                     Obywatel Plus
                   </div>
@@ -60,7 +60,7 @@
                 </span>
               </v-col>
 
-              <v-col cols="12" md="6" class="d-flex">
+              <v-col cols="12" md="6">
                 <v-img class="hidden-sm-and-down my-auto mx-auto" src="wolontariusz.svg" />
               </v-col>
             </v-row>

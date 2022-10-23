@@ -59,8 +59,10 @@
               </v-card-title>
 
               <v-card-text>
-                <v-card v-for="(komentarz, index) in post.comments" :key="index" max-width="40%" class="mb-4">
-                  <v-card-text c>
+
+                <v-card v-for="(komentarz,index) in post.comments" :key="index" max-width="40%" class="mb-4">
+                  <v-card-text>
+
                     <div>{{ komentarz.displayName }}</div>
                     <div class="text--primary">
                       {{ komentarz.comment }}
@@ -157,7 +159,6 @@ export default {
         }
       }
     },
-
     comments (item) {
       if (item.comments) {
         return Object.keys(item.comments).length
@@ -184,10 +185,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.break {
-  flex-basis: 100%;
-  height: 0;
-}
-</style>

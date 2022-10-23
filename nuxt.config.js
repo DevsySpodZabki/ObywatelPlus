@@ -88,7 +88,13 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      title: 'My PWA',
+      author: 'Me'
+    },
     manifest: {
+      name: 'Nuxt.js PWAs are so easy',
+      short_name: 'Nuxt.js PWA',
       lang: 'pl'
     }
   },
