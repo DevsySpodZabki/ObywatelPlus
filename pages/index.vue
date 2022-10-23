@@ -9,7 +9,7 @@
                 <span class="my-auto">
                   <div
                     :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
-                    class="font-weight-black mx-sm-15 mx-md-0"
+                    class="font-weight-black mx-sm-15 mx-md-0 text-center"
                   >
                     Obywatel Plus
                   </div>
