@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
+const routerBase = 'https://obywatelplus.tk'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -89,13 +91,20 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {
-      title: 'My PWA',
-      author: 'Me'
+      title: 'ObywatelPlus',
+      author: 'Wiktor, Michał, Szymon'
     },
     manifest: {
-      name: 'Nuxt.js PWAs are so easy',
-      short_name: 'Nuxt.js PWA',
-      lang: 'pl'
+      name: 'Narzędzia dla obywatela',
+      short_name: 'ObywatelPlus',
+      lang: 'pl',
+      start_url: routerBase + '?standalone=true'
+    },
+    icon: {
+      src: 'static/icon.png',
+      sizes: [64, 120, 144, 152, 192, 384, 512],
+      type: 'image/png',
+      purpose: "any"
     }
   },
 
