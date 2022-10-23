@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import isUrl from 'validator';
+import isUrl from 'validator/lib/isUrl';
 
 export default {
   data () {
