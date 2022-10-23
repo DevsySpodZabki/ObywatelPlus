@@ -4,18 +4,18 @@
       <v-container style="margin-top:100px;">
         <v-row>
           <v-col>
-            <v-card rounded="lg" color="rgb(0, 0, 0, 0.1)">
+            <v-card rounded="lg">
               <v-card-title class="display-2">
                 {{ post.name }}
               </v-card-title>
               <v-card-subtitle />
               <v-container>
-              <v-card-text v-if="!loggedIn" class="display-1" v-html="post.tresc || post.opis" />
+              <v-card-text class="display-1" v-html="post.tresc || post.opis" />
             </v-container>
             </v-card>
           </v-col>
           <v-col cols="2">
-            <v-list color="rgb(0, 0, 0, 0.1)">
+            <v-list>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -71,7 +71,6 @@
                           mdi-thumb-down-outline
                         </v-icon>
                         <div class="break" />
-                        <p>123</p>
                       </div>
                       
 
@@ -86,8 +85,7 @@
                         <v-icon v-else @click="like(komentarz, index)">
                           mdi-thumb-up-outline
                         </v-icon>
-                        <div class="break" />
-                        <p>123</p>
+                        <v-spacer />
                       </div>
                     </div>
                   </v-card-text>
@@ -160,7 +158,7 @@ export default {
       } else {
         return 0
       }
-    }
+    },
   },
   computed: {
     ...mapGetters([

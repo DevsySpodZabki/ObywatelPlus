@@ -9,7 +9,6 @@
         class="d-none"
       />
     </v-main>
-    <AppFloatingButton />
     <AppFooter />
     <AppBottonMobileNav />
   </v-app>
@@ -17,11 +16,9 @@
 
 <script>
 import Vue from 'vue'
-import AppFloatingButton from '../components/app-floating-button.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { AppFloatingButton },
   mounted () {
     const theme = localStorage.getItem('dark')
     if (theme) {
